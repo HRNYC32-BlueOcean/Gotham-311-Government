@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import IssuesPage from './components/IssuesPage.jsx';
+import UserData from './components/UserData/UserData.jsx'
 class App extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <>
-        <h1>Hello {name}</h1>
+      <div>
         <IssuesPage />
-        <Button variant='contained'>this is a material UI button</Button>
-      </>
+        <UserData/>
+      </div>
     );
   }
 }
