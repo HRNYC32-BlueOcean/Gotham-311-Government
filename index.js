@@ -1,7 +1,5 @@
 const EXPRESS = require('express');
 const PATH = require('path');
-const ROUTER = EXPRESS.Router();
-
 const PORT = process.env.PORT || 3005;
 
 const APP = EXPRESS();
