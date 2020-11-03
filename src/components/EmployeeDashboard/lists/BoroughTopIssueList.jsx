@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IssueListEntry from './IssueListEntry.jsx';
-import dummyData from '../../../../dummyData/dummyData.js';
+import IssueListEntry from './IssueListEntry';
+import dummyData from '../../../../dummyData/dummyData';
 
 const BoroughTopIssueList = (props) => {
   const topIssues = dummyData;
