@@ -1,58 +1,62 @@
-var topIssues = [
+const topIssues = [
   {
-    title: "Manhole cover missing",
-    description: "There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing",
-    username: "BobFromNY",
-    resolution_status: "IN PROGRESS",
-    issue_type: "Traffic",
+    title: 'Manhole cover missing',
+    description:
+      'There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing',
+    username: 'BobFromNY',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'Traffic',
     priority: Math.floor(Math.random() * Math.floor(500)),
     date_issued: new Date() - Math.floor(Math.random() * Math.floor(100000)),
-    borough: "Manhattan"
+    borough: 'Manhattan',
   },
   {
-    title: "Manhole cover missing",
-    description: "There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing",
-    username: "BobFromNY",
-    resolution_status: "IN PROGRESS",
-    issue_type: "Traffic",
+    title: 'Manhole cover missing',
+    description:
+      'There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing',
+    username: 'BobFromNY',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'Traffic',
     priority: Math.floor(Math.random() * Math.floor(500)),
     date_issued: new Date() - Math.floor(Math.random() * Math.floor(100000)),
-    borough: "Manhattan"
+    borough: 'Manhattan',
   },
   {
-    title: "Manhole cover missing",
-    description: "There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing",
-    username: "BobFromNY",
-    resolution_status: "IN PROGRESS",
-    issue_type: "Traffic",
+    title: 'Manhole cover missing',
+    description:
+      'There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing',
+    username: 'BobFromNY',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'Traffic',
     priority: Math.floor(Math.random() * Math.floor(500)),
     date_issued: new Date() - Math.floor(Math.random() * Math.floor(100000)),
-    borough: "Manhattan"
+    borough: 'Manhattan',
   },
   {
-    title: "Manhole cover missing",
-    description: "There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing",
-    username: "BobFromNY",
-    resolution_status: "IN PROGRESS",
-    issue_type: "Traffic",
+    title: 'Manhole cover missing',
+    description:
+      'There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing',
+    username: 'BobFromNY',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'Traffic',
     priority: Math.floor(Math.random() * Math.floor(500)),
     date_issued: new Date() - Math.floor(Math.random() * Math.floor(100000)),
-    borough: "Manhattan"
+    borough: 'Manhattan',
   },
   {
-    title: "Manhole cover missing",
-    description: "There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing",
-    username: "BobFromNY",
-    resolution_status: "IN PROGRESS",
-    issue_type: "Traffic",
+    title: 'Manhole cover missing',
+    description:
+      'There is a manhole cover missing and this is the description of that event and I could really just go on and on and on about this thing',
+    username: 'BobFromNY',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'Traffic',
     priority: Math.floor(Math.random() * Math.floor(500)),
     date_issued: new Date() - Math.floor(Math.random() * Math.floor(100000)),
-    borough: "Manhattan"
-  }
-]
+    borough: 'Manhattan',
+  },
+];
 
-export default topIssues
-
+export default topIssues;
 
 /* REQUEST #1
 top issues by borough
@@ -60,19 +64,19 @@ top issues by borough
 the issues with the highest validation count where status is "IN PROGRESS" or "OPEN"
 EXAMPLE top issues for Manhattan:
 */
-var issues = [
-    {
-    title: "Example Title",
-    description: "Example Description",
-    username: "ExampleUser",
-    resolution_status: "IN PROGRESS",
-    issue_type: "ExampleType",
+const issues = [
+  {
+    title: 'Example Title',
+    description: 'Example Description',
+    username: 'ExampleUser',
+    resolution_status: 'IN PROGRESS',
+    issue_type: 'ExampleType',
     priority: 423,
-    date_issued: "ExampleDate",
-    borough: "Manhattan"
-    },
-    // plus 4 more entries for manhattan
-  ]
+    date_issued: 'ExampleDate',
+    borough: 'Manhattan',
+  },
+  // plus 4 more entries for manhattan
+];
 
 /*
 it would be great to just get it like this:
@@ -87,7 +91,7 @@ var top5Issues =
   }
 */
 
-/**********************************************/
+/** ******************************************* */
 
 /* REQUEST #2
 issues count by borough
@@ -95,36 +99,34 @@ the count of tickets by status for each borough
 EXAMPLE issue count for Manhattan:
 */
 var issueCount = {
-  'manhattan': {
-    open_issues: 254, //issues with status "OPEN" and in Manhattan for all time
-    in_progress_issues: 142, //issues with status "IN PROGRESS" and in Manhattan for all time
-    resolved_issues: 245 //issues with status "RESOLVED" and in Manhattan for all time
+  manhattan: {
+    open_issues: 254, // issues with status "OPEN" and in Manhattan for all time
+    in_progress_issues: 142, // issues with status "IN PROGRESS" and in Manhattan for all time
+    resolved_issues: 245, // issues with status "RESOLVED" and in Manhattan for all time
   },
-  'brooklyn': {
+  brooklyn: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'queens': {
+  queens: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'bronx': {
+  bronx: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
   'staten island': {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-}
+};
 
-/**********************************************/
-
-
+/** ******************************************* */
 
 /* REQUEST #3
 Issue count by month - all boroughs together
@@ -132,66 +134,64 @@ the count of tickets by status for each borough
 EXAMPLE RESPONSE DATA:
 */
 var issueCount = {
-  'Jan': {
-    open_issues: 254, //issues with status "OPEN" in January
-    in_progress_issues: 142, //issues with status "IN PROGRESS" in January
-    resolved_issues: 245 //issues with status "RESOLVED" in January
+  Jan: {
+    open_issues: 254, // issues with status "OPEN" in January
+    in_progress_issues: 142, // issues with status "IN PROGRESS" in January
+    resolved_issues: 245, // issues with status "RESOLVED" in January
   },
-  'Feb': {
+  Feb: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Mar': {
+  Mar: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Apr': {
+  Apr: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Jun': {
+  Jun: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Jul': {
+  Jul: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Aug': {
+  Aug: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Sep': {
+  Sep: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Oct': {
+  Oct: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Nov': {
+  Nov: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Dec': {
+  Dec: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
-  }
-}
+    resolved_issues: 245,
+  },
+};
 
-
-/**********************************************/
-
+/** ******************************************* */
 
 /* REQUEST #4
 User interactions by month
@@ -201,70 +201,70 @@ for this one we may want to consider making another table that just tracks a cou
 ***************
 EXAMPLE RESPONSE DATA:
 */
-var userActions = {
-  'Jan': {
-    issue_posts: 254, //number of times users posted issues in January
-    issue_reports: 142, //number of times users reported issues in January
-    issue_validations: 245, //number of times users validated issues in January
-    issue_resloves: 34 //number of times users resolved issues in January
+const userActions = {
+  Jan: {
+    issue_posts: 254, // number of times users posted issues in January
+    issue_reports: 142, // number of times users reported issues in January
+    issue_validations: 245, // number of times users validated issues in January
+    issue_resloves: 34, // number of times users resolved issues in January
   },
-  'Feb': {
+  Feb: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Mar': {
+  Mar: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Apr': {
+  Apr: {
     open_issues: 254,
     in_progress_issues: 142,
-    resolved_issues: 245
+    resolved_issues: 245,
   },
-  'Jun': {
+  Jun: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Jul': {
+  Jul: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Aug': {
+  Aug: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Sep': {
+  Sep: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Oct': {
+  Oct: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Nov': {
+  Nov: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
+    issue_resloves: 34,
   },
-  'Dec': {
+  Dec: {
     issue_posts: 254,
     issue_reports: 142,
     issue_validations: 245,
-    issue_resloves: 34
-  }
-}
+    issue_resloves: 34,
+  },
+};
