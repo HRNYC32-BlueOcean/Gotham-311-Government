@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BoroughIssuePieChart from './charts/BoroughIssuePieChart.jsx';
-import BoroughTopIssueList from './lists/BoroughTopIssueList.jsx';
+import BoroughIssuePieChart from './charts/BoroughIssuePieChart';
+import BoroughTopIssueList from './lists/BoroughTopIssueList';
 
 const BoroughIssueTracker = (props) => {
+  const {borough, topIssues} = props;
   return (
     <div className="borough-info-container">
       <p className="borough-info-chart-header">
         ISSUE TRACKER:
         {props.borough}
       </p>
-      <BoroughIssuePieChart borough={props.borough} />
+      <BoroughIssuePieChart borough={borough} />
       <p className="borough-info-list-header">TOP ISSUES:</p>
-      <BoroughTopIssueList borough={props.borough} topIssues={props.topIssues} />
+      <BoroughTopIssueList borough={borough} topIssues={topIssues} />
     </div>
   );
 };
