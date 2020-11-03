@@ -18,7 +18,8 @@ const BoroughIssueTracker = (props) => {
 };
 
 BoroughIssueTracker.propTypes = {
-  borough: PropTypes.string;
+  borough: PropTypes.string,
+  topIssues: PropTypes.object
 };
 
 export default BoroughIssueTracker;
