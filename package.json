@@ -16,16 +16,17 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.8",
     "@material-ui/icons": "^4.9.1",
     "@nivo/bar": "^0.63.1",
     "@nivo/core": "^0.63.1",
     "@nivo/line": "^0.63.1",
     "@nivo/pie": "^0.63.1",
-    "@material-ui/data-grid": "^4.0.0-alpha.8",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "fontsource-roboto": "^3.0.3",
     "path": "^0.12.7",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
