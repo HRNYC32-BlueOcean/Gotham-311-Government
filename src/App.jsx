@@ -1,19 +1,29 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import EmployeeDashboard from './components/EmployeeDashboard/EmployeeDashboard';
-import IssuesPage from './components/IssuesPage';
+import IssuesPage from './components/IssuePage/IssuesPage';
 import UserData from './components/UserData/UserData';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <IssuesPage />
-        <UserData />
-        <EmployeeDashboard />
-      </div>
-    );
-  }
-}
+const App = (props) => (
+      <Router>
+        <nav>
+          <Link to="/">Dashboard</Link>
+          <Link to="/users">Users</Link>
+          <Link to="/issues">Issues</Link>
+        </nav>
+        <Switch>
+          <Route exact path="/">
+            <EmployeeDashboard/>
+          </Route>
+          <Route path="/users">
+            <UserData/>
+          </Route>
+          <Route path="/issues">
+            <IssuesPage/>
+          </Route>
+        </Switch>
+      </Router>
+);
+
 
 export default App;
