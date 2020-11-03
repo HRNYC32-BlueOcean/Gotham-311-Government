@@ -205,18 +205,20 @@ var userActions = {
   'Jan': {
     issue_posts: 254, //number of times users posted issues in January
     issue_reports: 142, //number of times users reported issues in January
-    issue_validations: 245 //number of times users validated issues in January
+    issue_validations: 245, //number of times users validated issues in January
     issue_resloves: 34 //number of times users resolved issues in January
   },
   'Feb': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Mar': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Apr': {
     open_issues: 254,
@@ -224,38 +226,45 @@ var userActions = {
     resolved_issues: 245
   },
   'Jun': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Jul': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Aug': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Sep': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Oct': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Nov': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   },
   'Dec': {
-    open_issues: 254,
-    in_progress_issues: 142,
-    resolved_issues: 245
+    issue_posts: 254,
+    issue_reports: 142,
+    issue_validations: 245,
+    issue_resloves: 34
   }
 }

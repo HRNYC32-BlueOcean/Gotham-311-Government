@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IssueListEntry from './IssueListEntry.js';
+import IssueListEntry from './IssueListEntry.jsx';
 import dummyData from '../../../../dummyData/dummyData.js';
 
-var BoroughTopIssueList = (props) => {
-  var topIssues = dummyData;
+const BoroughTopIssueList = (props) => {
+  const topIssues = dummyData;
   return (
     <div className="borough-top-issue-list-container">
       <div className="issue-list-header-container">
@@ -16,13 +16,12 @@ var BoroughTopIssueList = (props) => {
         <div className="top-issue-header header-status">STATUS</div>
       </div>
       {topIssues.map((issue) => {
-        return <IssueListEntry issue={issue} id={issue.title}/>
+        return <IssueListEntry issue={issue} id={issue.title} />;
       })}
     </div>
-  )
-}
+  );
+};
 
-BoroughTopIssueList.propTypes = {
-}
+BoroughTopIssueList.propTypes = {};
 
 export default BoroughTopIssueList;
