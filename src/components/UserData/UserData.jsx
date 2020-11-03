@@ -1,40 +1,71 @@
 import React from 'react';
-import {Data} from './dummyData.jsx';
+import { Data } from './dummyData.jsx';
 import { DataGrid } from '@material-ui/data-grid';
+import { Button } from '@material-ui/core';
+
+
 
 const columns = [
-  { field: 'email', headerName: 'Email', width: 250},
-  { field: 'status', headerName: 'Status', width: 120 },
+  { field: 'email', headerName: 'Username', width: 250 },
   { field: 'firstName', headerName: 'First name', width: 170 },
   { field: 'lastInit', headerName: 'Last Initial', width: 170 },
-  { field: 'points', headerName: 'Points', type: 'number', width: 110 },
-  { field: 'reported', headerName: 'Reported', type: 'number', width: 110 }
+  { field: 'points', headerName: 'Points', type: 'number', width: 170 },
+  { field: 'reported', headerName: 'Reported', type: 'number', width: 170 },
+  { field: 'status', headerName: 'Status', width: 170 },
+  {
+    field: 'ban', //this may change
+    headerName: 'Ban User',
+    type: 'boolean',
+    valueGetter: function(params){
+      this._data = params
+      console.log(params.getValue('ban'))
+      return params
+    },
+    renderCell: function(values = valueGetter){
+      const returnId  = () => {
+        //console.log(this._data.data.id)
+        console.log(this._data.getValue('id'))
+        return this._data.getValue('ban')
+      }
+      if (this._data.data.hasOwnProperty('ban') && this._data.data.ban === true ) {
+        return (<strong>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={returnId}
+            >
+            Ban
+            </Button>
+          </strong>)
+
+      }
+    },
+    width: 170
+  },
 ];
 
-// const rows = [
-//   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-//   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-//   { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-//   { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-//   { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-//   { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-//   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-//   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-//   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-// ];
-
-const renderedList = Data.map((item, index) => {
-  return {id:index, email:item.email, status:item.status, firstName:item.firstName, lastInit:item.lastInit, points:item.points}
-})
-
+//change email to username
 
 export default function UserData() {
+
+  const renderedList = Data.map((item, index) => {
+    return {
+      id: item.firstName,
+      email: item.email,
+      status: item.status,
+      firstName: item.firstName,
+      lastInit: item.lastInit,
+      points: item.points,
+      ban: item.status === 'Active' ? true: false,
+    };
+  });
+
+
   return (
     <div>
-      <button style={{fontSize: '16px'}}> Home </button>
-      <button style={{ fontSize: '16px'}}> Issues </button>
       <div style={{ height: 300, width: '100%' }}>
-        <DataGrid rows={renderedList} columns={columns} pageSize={5} />
+        <DataGrid rows={renderedList} columns={columns} pageSize={50} />
       </div>
     </div>
   );
