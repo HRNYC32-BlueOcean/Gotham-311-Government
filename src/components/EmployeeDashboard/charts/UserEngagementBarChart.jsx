@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveBar } from '@nivo/bar';
 
-function UserEngagementBarChart(props) {
+const UserEngagementBarChart = (props) => {
   const data = props.data || [
     {
       month: 'Jan',

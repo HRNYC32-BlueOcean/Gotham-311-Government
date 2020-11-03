@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef, select } from '@nivo/core';
 
-function MonthlyIssueLineChart(props) {
+const MonthlyIssueLineChart = (props) => {
   const data = props.data || [
     {
       id: 'OPEN',

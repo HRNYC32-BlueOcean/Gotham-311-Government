@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsivePie } from '@nivo/pie';
 
-function BoroughIssuePieChart(props) {
+const BoroughIssuePieChart = (props) => {
   const data = props.data || [
     {
       id: 'Open',
