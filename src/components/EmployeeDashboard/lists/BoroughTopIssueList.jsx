@@ -4,7 +4,7 @@ import IssueListEntry from './IssueListEntry';
 import dummyData from '../../../../dummyData/dummyData';
 
 const BoroughTopIssueList = (props) => {
-  const topIssues = dummyData;
+  const {topIssues} = props;
   return (
     <div className="borough-top-issue-list-container">
       <div className="issue-list-header-container">
