@@ -12,10 +12,9 @@ const IssuesEntry = (props) => {
     <div>
       <div className="issue-row" onClick={handleClick}>
         <div className="issue-data">{props.issue.id}</div>
-        <div className="issue-data">{props.issue.description}</div>
+        <div className="issue-data">{props.issue.title}</div>
         <div className="issue-data">{props.issue.reported_count}</div>
-        <div className="issue-data">{props.issue.task_owner}</div>
-        {/* <div className="issue-data">{props.issue.username}</div> */}
+        <div className="issue-data">{props.issue.borough}</div>
         <div className="issue-data">{props.issue.user_id}</div>
         <div className="issue-data">{props.issue.upvoted_count}</div>
         <div className="issue-data">{props.issue.resolution_status}</div>
@@ -26,29 +25,34 @@ const IssuesEntry = (props) => {
       </div>
       {open ? (
         <div>
+          <div className="issue-data-detail">{props.issue.title}</div>
           <div className="issue-data-detail">ID: {props.issue.id}</div>
           <div className="issue-data-detail">Upvotes: {props.issue.upvoted_count}</div>
           <div className="issue-data-detail">Reported: {props.issue.reported_count}</div>
-          <div className="issue-data-detail">Task Owner: {props.issue.task_owner}</div>
+          <div className="issue-data-detail">Borough: {props.issue.borough}</div>
           <div className="issue-data-detail">User ID: {props.issue.user_id}</div>
+          {/* <div className="issue-data-detail">Username: {props.issue.username}</div> */}
+          {/* <div className="issue-data-detail">User Reported: {props.issue.username}</div> */}
           <div className="issue-data-detail">
             Resolution Status: {props.issue.resolution_status}
-          </div>
-          <div className="issue-data-detail">
-            Confirmed Count: {props.issue.confirm_resolved_count}
           </div>
           <div className="issue-data-detail">Date Issued: {props.issue.date_issued}</div>
           <div className="issue-data-detail">
             Date In-Progress: {props.issue.date_marked_in_progress}
           </div>
           <div className="issue-data-detail">Date Resolved: {props.issue.date_marked_resolved}</div>
+          <div className="issue-data-detail">
+            Confirmed Count: {props.issue.confirm_resolved_count}
+          </div>
+          <div>Address?? lat/lon?</div>
+          {/* <div className="issue-data-detail">Address: {props.issue.date_marked_resolved}</div> */}
           <div className="issue-data-detail">Description: {props.issue.description}</div>
           {/* maybe add a map? */}
-          <div>photo</div>
           <img className="issue-data-photo" src={props.issue.img}></img>
           {/* might need to do confitional rendering */}
-          <button>Own Ticket</button>
-          <button>Mark Resolved</button>
+          <button>Open</button>
+          <button>In Progress</button>
+          <button>Resolved</button>
         </div>
       ) : null}
     </div>

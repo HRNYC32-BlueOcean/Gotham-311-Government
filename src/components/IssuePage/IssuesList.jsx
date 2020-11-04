@@ -25,13 +25,13 @@ const IssuesList = (props) => {
           id
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          description
+          title
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
           reported_count
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          task_owner
+          borough
         </div>
         {/* <div className="issue-data">username</div> */}
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
