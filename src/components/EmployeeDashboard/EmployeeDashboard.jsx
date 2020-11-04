@@ -4,20 +4,34 @@ import UserEngagementBarChart from './charts/UserEngagementBarChart';
 import MonthlyIssueLineChart from './charts/MonthlyIssueLineChart';
 import BoroughIssueTracker from './BoroughIssueTracker';
 import axios from 'axios';
-import {getTopIssues} from '../api_calls/api_calls';
+import { getTopIssues,
+  getIssueStatusCountByBoroughForLast24hours,
+  getIssueStatusCountForPeriod,
+  getUserInteractionCountsForPeriod } from '../api_calls/api_calls';
 
 const EmployeeDashboard = (props) => {
 
   const [topIssues, setTopIssues] = useState(null);
+  const [boroughIssues, setBoroughIssues] = useState(null);
+  const [interactionCounts, setInteractionCounts] = useState(null);
+  const [issueCounts, setIssueCounts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
-    Promise.all([getTopIssues(), getIssueStatusCountByBoroughForLast24hours()])
+    Promise.all([getTopIssues(),
+      getIssueStatusCountByBoroughForLast24hours(),
+      getUserInteractionCountsForPeriod(),
+      getIssueStatusCountForPeriod()])
       .then((responses) => {
-        console.log(responses);
-        console.log(responses[0].data.data.topIssues);
-        setTopIssues(responses[0].data.data.topIssues);
+        const newTopIssues = responses[0].data.data.topIssues;
+        // const newBoroughIssues = responses[1].data.data.boroughIssues;
+        // const newInteractionCounts = responses[2].data.data.interactionCounts;
+        // const newIssueCounts = responses[3].data.data.issueCounts;
+        setTopIssues(newTopIssues);
+        // setBoroughIssues(newBoroughIssues);
+        // setInteractionCounts(newInteractionCounts);
+        // setIssueCounts(newIssueCounts);
         setIsLoading(false);
       })
       .catch((err) => {

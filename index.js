@@ -5,10 +5,10 @@ const PORT = process.env.PORT || 3005;
 
 const APP = EXPRESS();
 
-APP.use(EXPRESS.static(PATH.join(__dirname, './dist')));
+APP.use(EXPRESS.static(PATH.join(__dirname, 'dist')));
 
 APP.get('/', (req, res) => {
-  res.status(200).send('index');
+  res.status(200).send('index')
 });
 
 APP.get('/issues', (req, res) => {

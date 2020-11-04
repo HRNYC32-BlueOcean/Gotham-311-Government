@@ -87,16 +87,93 @@ export var getTopIssues = () => {
 }
 
 export var getIssueStatusCountByBoroughForLast24hours = () => {
+  var period = moment().subtract(1,'days').toDate();
+  return axios({
+    url: api_url,
+    method: 'post',
+    data: {
+      query: `{
+        latestIssues(period: ${period}) {
+          manhattan {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          bronx {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          brooklyn {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          queens {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          staten_island {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+        }
+      }`
+    }
+  })
+}
+
+export var getIssueStatusCountForPeriod = () => {
+  var oneDayAgo = moment().subtract(1,'days').toDate();
+  var twoDaysAgo = moment().subtract(2,'days').toDate();
+  var threeDaysAgo = moment().subtract(3,'days').toDate();
+  var fourDaysAgo = moment().subtract(4,'days').toDate();
+  var fiveDaysAgo = moment().subtract(5,'days').toDate();
+  var sixDaysAgo = moment().subtract(6,'days').toDate();
+  var sevenDaysAgo = moment().subtract(7,'days').toDate();
+
+  return axios({
+    url: api_url,
+    method: 'post',
+    data: {
+      query: `{
+        latestIssues(period: ${period}) {
+          manhattan {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          bronx {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          brooklyn {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          queens {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          staten_island {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+        }
+      }`
+    }
+  })
 
 
 }
 
 export var getUserInteractionCountsForPeriod = () => {
-
-
-}
-
-export var getIssueStatusCountForPeriod = () => {
 
 
 }
