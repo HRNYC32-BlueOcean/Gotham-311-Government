@@ -1482,11 +1482,22 @@ const example = [
     task_owner: null,
   },
 ];
-const IssuesPage = (props) => (
-  <div>
-    {/* <Statuses /> */}
-    <IssuesList issues={example} />
-  </div>
-);
+
+const IssuesPage = (props) => {
+  const [sortVal, setSortVal] = useState('id');
+  const [data, setData] = useState(example);
+  return (
+    <div>
+      {/* <Statuses /> */}
+      <IssuesList
+        sortVal={sortVal}
+        setSortVal={setSortVal}
+        issues={data}
+        setData={setData}
+        data={data}
+      />
+    </div>
+  );
+};
 
 export default IssuesPage;
