@@ -39,7 +39,7 @@ const BoroughIssuePieChart = (props) => {
           endAngle={90}
           innerRadius={0.5}
           padAngle={0.75}
-          colors={['rgba(255, 128, 0, .7)', 'rgba(16, 104, 227,.7)', 'rgba(255,255,255,.7)']}
+          colors={['rgba(255, 128, 0, .9)', 'rgba(16, 104, 227,.9)', 'rgba(255,255,255,.9)']}
           borderWidth={1}
           borderColor="black"
           enableRadialLabels={false}
@@ -57,7 +57,6 @@ const BoroughIssuePieChart = (props) => {
               translateX: -15,
               itemWidth: 40,
               itemHeight: 18,
-              itemTextColor: 'rgb(0,0,0)',
               symbolSize: 12,
               symbolShape: 'circle',
             },

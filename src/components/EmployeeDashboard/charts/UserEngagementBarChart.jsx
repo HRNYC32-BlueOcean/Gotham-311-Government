@@ -113,15 +113,39 @@ const UserEngagementBarChart = (props) => {
           padding={0.35}
           groupMode="grouped"
           colors={[
-            'rgba(255, 128, 0, .5)',
-            'rgba(16, 104, 227,.5)',
-            'rgba(255,255,255,.5)',
+            'rgba(255, 128, 0, .8)',
+            'rgba(16, 104, 227,.8)',
+            'rgba(255,255,255,.8)',
             'rbga(0,0,0,.3)',
           ]}
           borderWidth={0.7}
           borderColor="black"
           axisTop={null}
           axisRight={null}
+          theme={{
+            axis: {
+              fontSize: "14px",
+              tickColor: "#ffffff",
+              ticks: {
+                line: {
+                  stroke: "#ffffff"
+                },
+                text: {
+                  fill: "#ffffff"
+                }
+              },
+              legend: {
+                text: {
+                  fill: "#ffffff"
+                }
+              }
+            },
+            grid: {
+              line: {
+                stroke: "#ffffff"
+              }
+            }
+          }}
           axisBottom={{
             tickSize: 5,
             tickPadding: 5,
@@ -137,7 +161,7 @@ const UserEngagementBarChart = (props) => {
           }}
           enableLabel={false}
           labelSkipHeight={12}
-          labelTextColor="rbg(0,0,0)"
+          labelTextColor="rbg(255,255,255)"
           legends={[
             {
               dataFrom: 'keys',
@@ -149,18 +173,10 @@ const UserEngagementBarChart = (props) => {
               itemsSpacing: 10,
               itemWidth: 70,
               itemHeight: 15,
+              itemTextColor: "rbg(255,255,255)",
               itemDirection: 'top-to-bottom',
-              itemOpacity: 1,
               symbolSize: 12,
               symbolShape: 'circle',
-              effects: [
-                {
-                  on: 'hover',
-                  style: {
-                    itemOpacity: 1,
-                  },
-                },
-              ],
             },
           ]}
           animate
