@@ -13,7 +13,7 @@ const BoroughTopIssueList = (props) => {
         {props.issue.issue_type}
       </div>
       <div className="issue-entry issue-entry-date issue-list-grid-Col4">
-        {moment(props.issue.date_issued).format('MMMM Do YYYY')}
+        {moment(props.issue.date_issued).format('MMM Do YYYY')}
       </div>
       <div className="issue-entry issue-entry-priority issue-list-grid-Col5">
         {props.issue.priority}

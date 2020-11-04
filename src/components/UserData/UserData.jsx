@@ -68,7 +68,7 @@ export default function UserData() {
 
   return (
     <div>
-      <div style={{ height: 300, width: '100%' }}>
+      <div style={{ height: '90vh', width: '100%' }}>
         <DataGrid rows={renderedList} columns={columns} pageSize={50} onSelectionChange={(selected) => {
             if (selected.rows.length) {
               banUser(selected.rows[0].email);

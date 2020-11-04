@@ -107,7 +107,7 @@ h1 {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 2fr 1fr 2fr;
   border: 1px solid black;
-  background-color: $bg;
+  background-color:  rgba(187, 192, 200, 0.8);
   align-items: center;
 }
 
@@ -140,7 +140,7 @@ h1 {
 }
 
 .top-issue-header {
-  font-size: .8vw;
+  font-size: .85vw;
   font-weight: 700;
 }
 
@@ -170,7 +170,7 @@ h1 {
 }
 
 .issue-entry {
-  font-size: .7vw;
+  font-size: .75vw;
   color: black;
   margin: .6vw .75vw;
 }
