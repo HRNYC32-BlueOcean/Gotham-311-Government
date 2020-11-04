@@ -12,10 +12,10 @@ const IssuesList = (props) => {
         <div className="issue-data">user_id</div>
         <div className="issue-data">upvoted_count</div>
         <div className="issue-data">resolution_status</div>
-        <div className="issue-data">confirm_resolved_count</div>
-        <div className="issue-data">date_issued</div>
-        <div className="issue-data">date_marked_in_progress</div>
-        <div className="issue-data">date_marked_resolved</div>
+        <div className="issue-data">confirm_count</div>
+        <div className="issue-data">dt_issued</div>
+        <div className="issue-data">dt_in_progress</div>
+        <div className="issue-data">dt_resolved</div>
       </div>
       <IssuesEntry />
       {props.issues.map((issueData) => {

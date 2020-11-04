@@ -27,7 +27,7 @@ const IssuesEntry = (props) => {
       {open ? (
         <div>
           <div className="issue-data-detail">ID: {props.issue.id}</div>
-          <div className="issue-data-detail">{props.issue.upvoted_count}</div>
+          <div className="issue-data-detail">Upvotes: {props.issue.upvoted_count}</div>
           <div className="issue-data-detail">Reported: {props.issue.reported_count}</div>
           <div className="issue-data-detail">Task Owner: {props.issue.task_owner}</div>
           <div className="issue-data-detail">User ID: {props.issue.user_id}</div>
@@ -39,12 +39,13 @@ const IssuesEntry = (props) => {
           </div>
           <div className="issue-data-detail">Date Issued: {props.issue.date_issued}</div>
           <div className="issue-data-detail">
-            Date In-Progress{props.issue.date_marked_in_progress}
+            Date In-Progress: {props.issue.date_marked_in_progress}
           </div>
-          <div className="issue-data-detail">Date Resolved{props.issue.date_marked_resolved}</div>
-          <div className="issue-data-detail">Description{props.issue.description}</div>
+          <div className="issue-data-detail">Date Resolved: {props.issue.date_marked_resolved}</div>
+          <div className="issue-data-detail">Description: {props.issue.description}</div>
           {/* maybe add a map? */}
-          {/* <img src={props.issue.img}></img> */}
+          <div>photo</div>
+          {/* <img className="issue-data-photo" src={props.issue.img}>photo</img>  */}
           {/* might need to do confitional rendering */}
           <button>Own Ticket</button>
           <button>Mark Resolved</button>
