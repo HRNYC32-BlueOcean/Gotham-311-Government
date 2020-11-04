@@ -8,7 +8,7 @@ const IssuesList = (props) => {
         <div className="issue-data">description</div>
         <div className="issue-data">reported_count</div>
         <div className="issue-data">task_owner</div>
-        <div className="issue-data">username</div>
+        {/* <div className="issue-data">username</div> */}
         <div className="issue-data">user_id</div>
         <div className="issue-data">upvoted_count</div>
         <div className="issue-data">resolution_status</div>

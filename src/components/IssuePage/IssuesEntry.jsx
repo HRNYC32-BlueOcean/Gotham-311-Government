@@ -11,11 +11,11 @@ const IssuesEntry = (props) => {
   return props.issue ? (
     <div>
       <div className="issue-row" onClick={handleClick}>
-        <div className="issue-data">{props.issue.description}</div>
         <div className="issue-data">{props.issue.id}</div>
+        <div className="issue-data">{props.issue.description}</div>
         <div className="issue-data">{props.issue.reported_count}</div>
         <div className="issue-data">{props.issue.task_owner}</div>
-        <div className="issue-data">{props.issue.username}</div>
+        {/* <div className="issue-data">{props.issue.username}</div> */}
         <div className="issue-data">{props.issue.user_id}</div>
         <div className="issue-data">{props.issue.upvoted_count}</div>
         <div className="issue-data">{props.issue.resolution_status}</div>
@@ -45,7 +45,7 @@ const IssuesEntry = (props) => {
           <div className="issue-data-detail">Description: {props.issue.description}</div>
           {/* maybe add a map? */}
           <div>photo</div>
-          {/* <img className="issue-data-photo" src={props.issue.img}>photo</img>  */}
+          <img className="issue-data-photo" src={props.issue.img}></img>
           {/* might need to do confitional rendering */}
           <button>Own Ticket</button>
           <button>Mark Resolved</button>
