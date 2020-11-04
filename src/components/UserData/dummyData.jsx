@@ -2,7 +2,7 @@ export const Data = [
   {
     firstName: 'John',
     lastInit: 'Smith',
-    email: 'sSmith@gmail.com',
+    email: 'JSmith@gmail.com',
     points: 70,
     status: 'Active'
   },
@@ -10,7 +10,7 @@ export const Data = [
   {
     firstName: 'Sarah',
     lastInit: 'Green',
-    email: 'sSmith@gmail.com',
+    email: 'SGreen@gmail.com',
     points: 100,
     status: 'Active'
   },
@@ -18,7 +18,7 @@ export const Data = [
   {
     firstName: 'Nate',
     lastInit: 'Brown',
-    email: 'sSmith@gmail.com',
+    email: 'NBrown@gmail.com',
     points: 90,
     status: 'Inactive'
   },
@@ -26,7 +26,7 @@ export const Data = [
   {
     firstName: 'Brandon',
     lastInit: 'Williams',
-    email: 'sSmith@gmail.com',
+    email: 'BWilliams@gmail.com',
     points: 120,
     status: 'Active'
   }
