@@ -1,9 +1,12 @@
 import React from 'react';
+import {useState,useEffect} from 'react';
 import { Data } from './dummyData.jsx';
 import { DataGrid } from '@material-ui/data-grid';
 import { Button } from '@material-ui/core';
 
-
+const click = () => {
+  console.log('')
+}
 
 const columns = [
   { field: 'email', headerName: 'Username', width: 250 },
@@ -16,57 +19,64 @@ const columns = [
     field: 'ban', //this may change
     headerName: 'Ban User',
     type: 'boolean',
-    valueGetter: function(params){
-      this._data = params
-      console.log(params.getValue('ban'))
-      return params
+    renderCell: () => (
+      <strong>
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          onClick={click}
+        >
+        Ban
+        </Button>
+      </strong>
+      ),
+      width: 170,
     },
-    renderCell: function(values = valueGetter){
-      const returnId  = () => {
-        //console.log(this._data.data.id)
-        console.log(this._data.getValue('id'))
-        return this._data.getValue('ban')
-      }
-      if (this._data.data.hasOwnProperty('ban') && this._data.data.ban === true ) {
-        return (<strong>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              onClick={returnId}
-            >
-            Ban
-            </Button>
-          </strong>)
-
-      }
-    },
-    width: 170
-  },
 ];
 
 //change email to username
 
 export default function UserData() {
 
+  const [value, setValue] = useState([])
+
+  var banUser =(email) => {
+    if (value.includes(email) === false) {
+      let newVal = value.slice(0);
+      newVal.push(email)
+      setValue(newVal)
+    } else {
+      let newVal = value.slice(0);
+      newVal.splice(newVal.indexOf(email), 1)
+      setValue(newVal)
+    }
+  }
+
+
+
   const renderedList = Data.map((item, index) => {
     return {
-      id: item.firstName,
+      id: index,
       email: item.email,
-      status: item.status,
+      status: value.includes(item.email) ? "Inactive" : "Active",
       firstName: item.firstName,
       lastInit: item.lastInit,
       points: item.points,
-      ban: item.status === 'Active' ? true: false,
     };
   });
-
 
   return (
     <div>
       <div style={{ height: 300, width: '100%' }}>
-        <DataGrid rows={renderedList} columns={columns} pageSize={50} />
+        <DataGrid rows={renderedList} columns={columns} pageSize={50} onSelectionChange={(selected) => {
+            if (selected.rows.length) {
+              banUser(selected.rows[0].email);
+            }
+        }}
+        />
       </div>
     </div>
   );
 }
+
