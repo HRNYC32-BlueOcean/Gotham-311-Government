@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const BoroughTopIssueList = (props) => {
   return (
@@ -12,7 +13,7 @@ const BoroughTopIssueList = (props) => {
         {props.issue.issue_type}
       </div>
       <div className="issue-entry issue-entry-date issue-list-grid-Col4">
-        {props.issue.date_issued}
+        {moment(props.issue.date_issued).format('MMM Do YYYY')}
       </div>
       <div className="issue-entry issue-entry-priority issue-list-grid-Col5">
         {props.issue.priority}

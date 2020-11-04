@@ -194,7 +194,7 @@ const MonthlyIssueLineChart = (props) => {
           defs={[
             linearGradientDef('gradientA', [
               { offset: 0, color: 'rgb(16,104,227)' },
-              { offset: 100, color: 'rgb(0,0,0)', opacity: 0.5 },
+              { offset: 100, color: 'rgb(0,0,0)', opacity: 0.7 },
             ]),
           ]}
           fill={[{ match: '*', id: 'gradientA' }]}
@@ -206,13 +206,37 @@ const MonthlyIssueLineChart = (props) => {
             tickPadding: 5,
             tickRotation: 0,
           }}
+          theme={{
+            axis: {
+              fontSize: "14px",
+              tickColor: "#ffffff",
+              ticks: {
+                line: {
+                  stroke: "#ffffff"
+                },
+                text: {
+                  fill: "#ffffff"
+                }
+              },
+              legend: {
+                text: {
+                  fill: "#ffffff"
+                }
+              }
+            },
+            grid: {
+              line: {
+                stroke: "#ffffff"
+              }
+            }
+          }}
           axisLeft={{
             orient: 'left',
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
             legend: 'TOTAL ISSUES',
-            legendOffset: -40,
+            legendOffset: -45,
             legendPosition: 'middle',
           }}
           enableGridX={false}
@@ -235,7 +259,7 @@ const MonthlyIssueLineChart = (props) => {
               itemHeight: 12,
               symbolSize: 12,
               symbolShape: 'circle',
-              symbolBorderColor: 'rgba(0, 0, 0, .5)',
+              symbolBorderColor: 'rgb(0, 0, 0)',
               effects: [
                 {
                   on: 'hover',

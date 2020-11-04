@@ -8,8 +8,7 @@ const BoroughIssueTracker = (props) => {
   return (
     <div className="borough-info-container">
       <p className="borough-info-chart-header">
-        ISSUE TRACKER:
-        {props.borough}
+        ISSUE TRACKER : {props.borough}
       </p>
       <BoroughIssuePieChart borough={borough} />
       <p className="borough-info-list-header">TOP ISSUES:</p>
