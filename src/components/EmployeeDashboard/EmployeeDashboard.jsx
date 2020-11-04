@@ -19,10 +19,10 @@ const EmployeeDashboard = (props) => {
 
 
   useEffect(() => {
-    Promise.all([getTopIssues(),
+    Promise.all([getTopIssues()/*,
       getIssueStatusCountByBoroughForLast24hours(),
       getUserInteractionCountsForPeriod(),
-      getIssueStatusCountForPeriod()])
+    getIssueStatusCountForPeriod()*/])
       .then((responses) => {
         const newTopIssues = responses[0].data.data.topIssues;
         // const newBoroughIssues = responses[1].data.data.boroughIssues;

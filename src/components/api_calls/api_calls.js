@@ -93,7 +93,7 @@ export var getIssueStatusCountByBoroughForLast24hours = () => {
     method: 'post',
     data: {
       query: `{
-        latestIssues(period: ${period}) {
+        getBoroughIssues(period: ${period}) {
           manhattan {
             countOfOpenIssues
             countOfInProgressIssues
@@ -139,28 +139,46 @@ export var getIssueStatusCountForPeriod = () => {
     method: 'post',
     data: {
       query: `{
-        latestIssues(period: ${period}) {
-          manhattan {
+        getIssueCounts(
+          one: ${oneDayAgo},
+          two: ${twoDaysAgo},
+          three: ${threeDaysAgo},
+          four: ${fourDaysAgo},
+          five: ${fiveDaysAgo},
+          six: ${sixDaysAgo},
+          seven: ${sevenDaysAgo}
+          ) {
+          oneDayAgo {
             countOfOpenIssues
             countOfInProgressIssues
             countOfResolvedIssues
           }
-          bronx {
+          twoDaysAgo {
             countOfOpenIssues
             countOfInProgressIssues
             countOfResolvedIssues
           }
-          brooklyn {
+          threeDaysAgo {
             countOfOpenIssues
             countOfInProgressIssues
             countOfResolvedIssues
           }
-          queens {
+          fourDaysAgo {
             countOfOpenIssues
             countOfInProgressIssues
             countOfResolvedIssues
           }
-          staten_island {
+          fiveDaysAgo {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          sixDaysAgo {
+            countOfOpenIssues
+            countOfInProgressIssues
+            countOfResolvedIssues
+          }
+          sevenDaysAgo {
             countOfOpenIssues
             countOfInProgressIssues
             countOfResolvedIssues
@@ -169,11 +187,75 @@ export var getIssueStatusCountForPeriod = () => {
       }`
     }
   })
-
-
 }
 
 export var getUserInteractionCountsForPeriod = () => {
+  var oneDayAgo = moment().subtract(1,'days').toDate();
+  var twoDaysAgo = moment().subtract(2,'days').toDate();
+  var threeDaysAgo = moment().subtract(3,'days').toDate();
+  var fourDaysAgo = moment().subtract(4,'days').toDate();
+  var fiveDaysAgo = moment().subtract(5,'days').toDate();
+  var sixDaysAgo = moment().subtract(6,'days').toDate();
+  var sevenDaysAgo = moment().subtract(7,'days').toDate();
 
-
+  return axios({
+    url: api_url,
+    method: 'post',
+    data: {
+      query: `{
+        getInteractionCounts(
+          one: ${oneDayAgo},
+          two: ${twoDaysAgo},
+          three: ${threeDaysAgo},
+          four: ${fourDaysAgo},
+          five: ${fiveDaysAgo},
+          six: ${sixDaysAgo},
+          seven: ${sevenDaysAgo}
+          ) {
+          oneDayAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          twoDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          threeDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          fourDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          fiveDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          sixDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+          sevenDaysAgo {
+            countOfIssuePosts
+            countOfIssueReports
+            countOfIssueUpvotes
+            countOfIssueResolveVotes
+          }
+        }
+      }`
+    }
+  })
 }
