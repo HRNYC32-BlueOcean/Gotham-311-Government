@@ -203,3 +203,14 @@ h1 {
   margin: .5vw auto;
   text-transform: uppercase;
 }
+
+.piechart-header {
+  color: $medWhite
+}
+
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

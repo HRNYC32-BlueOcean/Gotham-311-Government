@@ -3,38 +3,40 @@ import PropTypes from 'prop-types';
 import { ResponsivePie } from '@nivo/pie';
 
 const BoroughIssuePieChart = (props) => {
-  const data = props.data || [
+  const { data } = props;
+  const chartData = [
     {
       id: 'Open',
       label: 'Open',
-      value: 306,
+      value: data.open,
     },
     {
       id: 'In Progress',
       label: 'In Progress',
-      value: 100,
+      value: data.in_progress,
     },
     {
       id: 'Resolved',
       label: 'Resolved',
-      value: 40,
+      value: data.resolved,
     },
   ];
 
   const randomizeData = (data) => {
-    data.forEach((entry) => {
+    chartData.forEach((entry) => {
       entry.value = Math.floor(Math.random() * Math.floor(200));
     });
   };
 
-  randomizeData(data);
+  randomizeData(chartData);
 
   return (
     <div className="chart-widget">
+      <div className="piechart-header">ISSUE STATUS: LAST 24 HOURS</div>
       <div className="piechart-container">
         <ResponsivePie
-          data={data}
-          margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
+          data={chartData}
+          margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
           startAngle={-90}
           endAngle={90}
           innerRadius={0.5}
@@ -48,23 +50,6 @@ const BoroughIssuePieChart = (props) => {
           animate
           motionStiffness={90}
           motionDamping={15}
-          legends={[
-            {
-              anchor: 'bottom',
-              direction: 'column',
-              itemDirection: 'left-to-right',
-              translateY: -8,
-              translateX: -15,
-              itemWidth: 40,
-              itemHeight: 18,
-              symbolSize: 12,
-              symbolShape: 'circle',
-            },
-          ]}
-          theme={{
-            fontFamily: 'sans-serif',
-            fontSize: '.8vw',
-          }}
         />
       </div>
     </div>
