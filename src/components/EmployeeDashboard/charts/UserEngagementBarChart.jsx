@@ -5,89 +5,47 @@ import { ResponsiveBar } from '@nivo/bar';
 const UserEngagementBarChart = (props) => {
   const data = props.data || [
     {
-      month: 'Jan',
+      period: '5 days ago',
       POSTS: 123,
       REPORTS: 96,
       VALIDATIONS: 68,
       RESOLVES: 68,
     },
     {
-      month: 'Feb',
+      period: '4 days ago',
       POSTS: 66,
       REPORTS: 23,
       VALIDATIONS: 132,
       RESOLVES: 68,
     },
     {
-      month: 'Mar',
+      period: '3 days ago',
       POSTS: 123,
       REPORTS: 22,
       VALIDATIONS: 99,
       RESOLVES: 68,
     },
     {
-      month: 'Apr',
+      period: '2 days ago',
       POSTS: 81,
       REPORTS: 78,
       VALIDATIONS: 55,
       RESOLVES: 68,
     },
     {
-      month: 'May',
+      period: '1 day ago',
       POSTS: 33,
       REPORTS: 45,
       VALIDATIONS: 121,
       RESOLVES: 68,
     },
     {
-      month: 'June',
+      period: 'Last 24 hrs',
       POSTS: 122,
       REPORTS: 175,
       VALIDATIONS: 143,
       RESOLVES: 68,
-    },
-    {
-      month: 'July',
-      POSTS: 123,
-      REPORTS: 33,
-      VALIDATIONS: 78,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Aug',
-      POSTS: 55,
-      REPORTS: 34,
-      VALIDATIONS: 11,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Sep',
-      POSTS: 123,
-      REPORTS: 75,
-      VALIDATIONS: 155,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Oct',
-      POSTS: 22,
-      REPORTS: 33,
-      VALIDATIONS: 77,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Nov',
-      POSTS: 146,
-      REPORTS: 22,
-      VALIDATIONS: 11,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Dec',
-      POSTS: 111,
-      REPORTS: 20,
-      VALIDATIONS: 155,
-      RESOLVES: 68,
-    },
+    }
   ];
 
   const randomizeData = (data) => {
@@ -108,14 +66,14 @@ const UserEngagementBarChart = (props) => {
         <ResponsiveBar
           data={data}
           keys={['POSTS', 'REPORTS', 'VALIDATIONS', 'RESOLVES']}
-          indexBy="month"
-          margin={{ top: 60, right: 20, bottom: 40, left: 60 }}
+          indexBy="period"
+          margin={{ top: 20, right: 20, bottom: 20, left: 60 }}
           padding={0.35}
           groupMode="grouped"
           colors={[
-            'rgba(255, 128, 0, .8)',
-            'rgba(16, 104, 227,.8)',
-            'rgba(255,255,255,.8)',
+            'rgba(255, 128, 0, .9)',
+            'rgba(16, 104, 227,.9)',
+            'rgba(255,255,255,.9)',
             'rbga(0,0,0,.3)',
           ]}
           borderWidth={0.7}
@@ -162,23 +120,6 @@ const UserEngagementBarChart = (props) => {
           enableLabel={false}
           labelSkipHeight={12}
           labelTextColor="rbg(255,255,255)"
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'top',
-              direction: 'row',
-              justify: false,
-              translateX: -20,
-              translateY: -50,
-              itemsSpacing: 10,
-              itemWidth: 70,
-              itemHeight: 15,
-              itemTextColor: "rbg(255,255,255)",
-              itemDirection: 'top-to-bottom',
-              symbolSize: 12,
-              symbolShape: 'circle',
-            },
-          ]}
           animate
           motionStiffness={95}
           motionDamping={15}

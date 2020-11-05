@@ -10,53 +10,33 @@ const MonthlyIssueLineChart = (props) => {
       color: 'rgb(255, 128, 0)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
-        },
-        {
-          x: 'Feb',
-          y: 230,
-        },
-        {
-          x: 'Mar',
-          y: 259,
-        },
-        {
-          x: 'Apr',
-          y: 15,
-        },
-        {
-          x: 'May',
+          x: '6 days ago',
           y: 67,
         },
         {
-          x: 'June',
+          x: '5 days ago',
           y: 170,
         },
         {
-          x: 'July',
+          x: '4 days ago',
           y: 32,
         },
         {
-          x: 'Aug',
+          x: '3 days ago',
           y: 170,
         },
         {
-          x: 'Sep',
+          x: '2 days ago',
           y: 116,
         },
         {
-          x: 'Oct',
+          x: '1 day ago',
           y: 1,
         },
         {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
+          x: 'Last day',
           y: 300,
-        },
+        }
       ],
     },
     {
@@ -64,53 +44,33 @@ const MonthlyIssueLineChart = (props) => {
       color: 'rgb(16, 104, 227)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
-        },
-        {
-          x: 'Feb',
-          y: 230,
-        },
-        {
-          x: 'Mar',
-          y: 259,
-        },
-        {
-          x: 'Apr',
-          y: 15,
-        },
-        {
-          x: 'May',
+          x: '6 days ago',
           y: 67,
         },
         {
-          x: 'June',
+          x: '5 days ago',
           y: 170,
         },
         {
-          x: 'July',
+          x: '4 days ago',
           y: 32,
         },
         {
-          x: 'Aug',
+          x: '3 days ago',
           y: 170,
         },
         {
-          x: 'Sep',
+          x: '2 days ago',
           y: 116,
         },
         {
-          x: 'Oct',
+          x: '1 day ago',
           y: 1,
         },
         {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
+          x: 'Last day',
           y: 300,
-        },
+        }
       ],
     },
     {
@@ -118,53 +78,33 @@ const MonthlyIssueLineChart = (props) => {
       color: 'rgb(255,255,255)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
-        },
-        {
-          x: 'Feb',
-          y: 230,
-        },
-        {
-          x: 'Mar',
-          y: 259,
-        },
-        {
-          x: 'Apr',
-          y: 15,
-        },
-        {
-          x: 'May',
+          x: '6 days ago',
           y: 67,
         },
         {
-          x: 'June',
+          x: '5 days ago',
           y: 170,
         },
         {
-          x: 'July',
+          x: '4 days ago',
           y: 32,
         },
         {
-          x: 'Aug',
+          x: '3 days ago',
           y: 170,
         },
         {
-          x: 'Sep',
+          x: '2 days ago',
           y: 116,
         },
         {
-          x: 'Oct',
+          x: '1 day ago',
           y: 1,
         },
         {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
+          x: 'Last day',
           y: 300,
-        },
+        }
       ],
     },
   ];
@@ -186,7 +126,7 @@ const MonthlyIssueLineChart = (props) => {
         <ResponsiveLine
           data={data}
           keys={['OPEN', 'IN PROGRESS', 'RESOLVED']}
-          margin={{ top: 60, right: 20, bottom: 40, left: 60 }}
+          margin={{ top: 20, right: 40, bottom: 20, left: 70 }}
           xScale={{ type: 'point' }}
           yScale={{ type: 'linear', stacked: true, reverse: false }}
           enableArea
@@ -246,31 +186,6 @@ const MonthlyIssueLineChart = (props) => {
           pointBorderColor={{ from: 'serieColor' }}
           pointLabelYOffset={-12}
           useMesh
-          legends={[
-            {
-              anchor: 'top',
-              direction: 'row',
-              justify: false,
-              translateX: -20,
-              translateY: -50,
-              itemsSpacing: 0,
-              itemDirection: 'top-to-bottom',
-              itemWidth: 100,
-              itemHeight: 12,
-              symbolSize: 12,
-              symbolShape: 'circle',
-              symbolBorderColor: 'rgb(0, 0, 0)',
-              effects: [
-                {
-                  on: 'hover',
-                  style: {
-                    itemBackground: 'rgba(0, 0, 0, .03)',
-                    itemOpacity: 1,
-                  },
-                },
-              ],
-            },
-          ]}
         />
       </div>
     </div>
