@@ -12,7 +12,7 @@ const IssuesPage = (props) => {
 
   const getData = (bor, sor, ord, offset) => {
     if (bor === 0) {
-      axios({
+      return axios({
         url: 'https://nameless-mountain-18450.herokuapp.com/',
         method: 'post',
         data: {
@@ -27,6 +27,10 @@ const IssuesPage = (props) => {
               borough{
                 name
               }
+              coordinates{
+                lat
+                lng
+              }
               photo_url
               confirm_resolved_count
               confirm_not_resolved_count
@@ -39,12 +43,12 @@ const IssuesPage = (props) => {
         },
       })
         .then((data) => {
-          console.log(data.data.data);
           setData(data.data.data.getSortedIssues);
+          return;
         })
         .catch((err) => console.error(err));
     } else {
-      axios({
+      return axios({
         url: 'https://nameless-mountain-18450.herokuapp.com/',
         method: 'post',
         data: {
@@ -58,6 +62,10 @@ const IssuesPage = (props) => {
               user_id
               borough{
                 name
+              }
+              coordinates{
+                lat
+                lng
               }
               photo_url
               confirm_resolved_count
@@ -73,6 +81,7 @@ const IssuesPage = (props) => {
         .then((data) => {
           console.log(data.data.data);
           setData(data.data.data.getSortedIssues);
+          return;
         })
         .catch((err) => console.error(err));
     }
@@ -96,8 +105,11 @@ const IssuesPage = (props) => {
   };
 
   const nextPage = () => {
-    getData(borough, sort, order, (page + 1) * 20);
-    setPage(page + 1);
+    getData(borough, sort, order, (page + 1) * 20)
+      .then(() => {
+        setPage(page + 1);
+      })
+      .catch((err) => console.error(err));
   };
 
   const prevPage = () => {
@@ -108,6 +120,7 @@ const IssuesPage = (props) => {
   useEffect(() => {
     clickHandler();
   }, []);
+
   return (
     <div>
       <br></br>
@@ -152,12 +165,12 @@ const IssuesPage = (props) => {
         setData={setData}
         data={data}
       />
+      <div>Page: {page + 1}</div>
       {page > 0 ? (
         <button className="page-button" onClick={prevPage}>
           Previous Page
         </button>
       ) : null}
-
       <button className="page-button" onClick={nextPage}>
         Next Page
       </button>
