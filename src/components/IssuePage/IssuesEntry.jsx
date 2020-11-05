@@ -74,7 +74,7 @@ const IssuesEntry = (props) => {
           <div className="issue-data-detail">Title: {props.issue.title}</div>
           <div className="issue-data-detail">ID: {props.issue.id}</div>
           <div className="issue-data-detail">Upvotes: {props.issue.upvotes_count}</div>
-          <div className="issue-data-detail">Reported: {props.issue.reported_count}</div>
+          <div className="issue-data-detail">Reports: {props.issue.reported_count}</div>
           <div className="issue-data-detail">Validations: {props.issue.confirm_resolved_count}</div>
           <div className="issue-data-detail">Borough: {props.issue.borough.name}</div>
           <div className="issue-data-detail">User ID: {props.issue.user_id}</div>

@@ -27,7 +27,7 @@ const IssuesList = (props) => {
         <div className="issue-data">TITLE</div>
         <div className="issue-data">UPVOTES</div>
         <div className="issue-data">VALIDATIONS</div>
-        <div className="issue-data">REPORTED</div>
+        <div className="issue-data">REPORTS</div>
         <div className="issue-data">BOROUGH</div>
         {/* <div className="issue-data">username</div> */}
         <div className="issue-data">USER_ID</div>
