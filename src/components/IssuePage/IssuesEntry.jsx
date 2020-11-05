@@ -49,7 +49,7 @@ const IssuesEntry = (props) => {
         <div className="issue-data">{props.issue.borough.name}</div>
         <div className="issue-data">{props.issue.user_id}</div>
         <div className="issue-data">{props.issue.resolution_status_id}</div>
-        {props.issue.created_date ? (
+        {props.issue.create_date ? (
           <div className="issue-data">{Date(props.issue.create_date).substring(0, 15)}</div>
         ) : (
           <div className="issue-data" />
@@ -83,7 +83,7 @@ const IssuesEntry = (props) => {
           <div className="issue-data-detail">
             Resolution Status: {props.issue.resolution_status_id}
           </div>
-          <div className="issue-data-detail">Date Issued: {props.issue.created_date}</div>
+          <div className="issue-data-detail">Date Issued: {props.issue.create_date}</div>
           <div className="issue-data-detail">
             Date In-Progress: {props.issue.date_marked_in_progress}
           </div>
