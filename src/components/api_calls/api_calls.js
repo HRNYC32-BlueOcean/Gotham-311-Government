@@ -9,7 +9,7 @@ export var getTopIssues = () => {
     method: 'post',
     data: {
       query: `{
-        topIssues(count:5) {
+        topIssues(count: 5) {
           manhattan {
             title
             type {
@@ -18,10 +18,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           bronx {
@@ -32,10 +32,9 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
-            upvotes_count
+            create_date
             resolution_status {
-              status
+              name
             }
           }
           brooklyn {
@@ -46,10 +45,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           queens {
@@ -60,10 +59,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           staten_island {
@@ -74,10 +73,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
         }
@@ -88,36 +87,37 @@ export var getTopIssues = () => {
 
 export var getIssueStatusCountByBoroughForLast24hours = () => {
   var period = moment().subtract(1,'days').toDate();
+  console.log(period)
   return axios({
     url: api_url,
     method: 'post',
     data: {
       query: `{
-        getBoroughIssues(period: ${period}) {
+        issuesByBorough(period: "${period}") {
           manhattan {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           bronx {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           brooklyn {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           queens {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           staten_island {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
         }
       }`
