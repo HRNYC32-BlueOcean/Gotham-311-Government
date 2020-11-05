@@ -27,11 +27,11 @@ const IssuesPage = (props) => {
               borough{
                 name
               }
-              created_date
               photo_url
               confirm_resolved_count
               confirm_not_resolved_count
               date_marked_resolved
+              create_date
               date_marked_in_progress
               resolution_status_id
             }
@@ -64,9 +64,8 @@ const IssuesPage = (props) => {
               confirm_not_resolved_count
               date_marked_resolved
               date_marked_in_progress
-              resolution_status {
-                name
-              }
+              create_date
+              resolution_status_id
             }
           }`,
         },

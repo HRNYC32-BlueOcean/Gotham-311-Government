@@ -50,7 +50,7 @@ const IssuesEntry = (props) => {
         <div className="issue-data">{props.issue.user_id}</div>
         <div className="issue-data">{props.issue.resolution_status_id}</div>
         {props.issue.created_date ? (
-          <div className="issue-data">{Date(props.issue.created_date).substring(0, 15)}</div>
+          <div className="issue-data">{Date(props.issue.create_date).substring(0, 15)}</div>
         ) : (
           <div className="issue-data" />
         )}
