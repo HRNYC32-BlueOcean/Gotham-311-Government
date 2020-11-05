@@ -3,7 +3,7 @@
 coverage/
 dist/*
 !dist/index.html
-!dist/authenticate.html
+!dist/authenticate.js
 !dist/login.html
 node_modules/
 *.log
