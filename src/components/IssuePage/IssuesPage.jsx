@@ -44,7 +44,10 @@ const IssuesPage = (props) => {
       })
         .then((data) => {
           setData(data.data.data.getSortedIssues);
-          return;
+          if (data.data.data.getSortedIssues.length === 0) {
+            return false;
+          }
+          return true;
         })
         .catch((err) => console.error(err));
     } else {
@@ -80,8 +83,11 @@ const IssuesPage = (props) => {
       })
         .then((data) => {
           console.log(data.data.data);
+          if (data.data.data.getSortedIssues.length === 0) {
+            return false;
+          }
           setData(data.data.data.getSortedIssues);
-          return;
+          return true;
         })
         .catch((err) => console.error(err));
     }
@@ -106,8 +112,9 @@ const IssuesPage = (props) => {
 
   const nextPage = () => {
     getData(borough, sort, order, (page + 1) * 20)
-      .then(() => {
-        setPage(page + 1);
+      .then((flag) => {
+        console.log(flag);
+        if (flag) setPage(page + 1);
       })
       .catch((err) => console.error(err));
   };
