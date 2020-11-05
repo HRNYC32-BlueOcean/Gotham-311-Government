@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import UserEngagementBarChart from './charts/UserEngagementBarChart';
 import MonthlyIssueLineChart from './charts/MonthlyIssueLineChart';
 import BoroughIssueTracker from './BoroughIssueTracker';
+import {CircularProgress} from '@material-ui/core';
 import axios from 'axios';
 import { getTopIssues,
   getIssueStatusCountByBoroughForLast24hours,
@@ -17,19 +18,18 @@ const EmployeeDashboard = (props) => {
   const [issueCounts, setIssueCounts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
-    Promise.all([getTopIssues()/*,
+    Promise.all([getTopIssues(),
       getIssueStatusCountByBoroughForLast24hours(),
-      getUserInteractionCountsForPeriod(),
-    getIssueStatusCountForPeriod()*/])
+      /* getUserInteractionCountsForPeriod(),
+      getIssueStatusCountForPeriod()*/])
       .then((responses) => {
         const newTopIssues = responses[0].data.data.topIssues;
-        // const newBoroughIssues = responses[1].data.data.boroughIssues;
+        const newBoroughIssues = responses[1].data.data.issuesByBorough;
         // const newInteractionCounts = responses[2].data.data.interactionCounts;
         // const newIssueCounts = responses[3].data.data.issueCounts;
         setTopIssues(newTopIssues);
-        // setBoroughIssues(newBoroughIssues);
+        setBoroughIssues(newBoroughIssues);
         // setInteractionCounts(newInteractionCounts);
         // setIssueCounts(newIssueCounts);
         setIsLoading(false);
@@ -41,7 +41,9 @@ const EmployeeDashboard = (props) => {
 
   if (isLoading) {
     return (
-      <div className="loading">Loading Data...</div>
+      <div className="loading-spinner">
+        <CircularProgress size={200}/>
+      </div>
     )
   }
 
@@ -52,11 +54,26 @@ const EmployeeDashboard = (props) => {
           <UserEngagementBarChart />
         </div>
         <div className="borough-metrics-container">
-          <BoroughIssueTracker borough="MANHATTAN" topIssues={topIssues.manhattan}/>
-          <BoroughIssueTracker borough="BROOKYLYN" topIssues={topIssues.brooklyn}/>
-          <BoroughIssueTracker borough="QUEENS" topIssues={topIssues.queens}/>
-          <BoroughIssueTracker borough="BRONX" topIssues={topIssues.bronx}/>
-          <BoroughIssueTracker borough="STATEN ISLAND" topIssues={topIssues.staten_island}/>
+          <BoroughIssueTracker
+            borough="MANHATTAN"
+            topIssues={topIssues.manhattan}
+            boroughIssues={boroughIssues.manhattan}/>
+          <BoroughIssueTracker
+            borough="BROOKYLYN"
+            topIssues={topIssues.brooklyn}
+            boroughIssues={boroughIssues.brooklyn}/>
+          <BoroughIssueTracker
+            borough="QUEENS"
+            topIssues={topIssues.queens}
+            boroughIssues={boroughIssues.queens}/>
+          <BoroughIssueTracker
+            borough="BRONX"
+            topIssues={topIssues.bronx}
+            boroughIssues={boroughIssues.bronx}/>
+          <BoroughIssueTracker
+            borough="STATEN ISLAND"
+            topIssues={topIssues.staten_island}
+            boroughIssues={boroughIssues.staten_island}/>
         </div>
       </div>
   );
