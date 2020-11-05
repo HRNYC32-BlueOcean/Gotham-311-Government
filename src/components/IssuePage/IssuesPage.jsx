@@ -144,7 +144,7 @@ const IssuesPage = (props) => {
         <option value="desc"> Descending </option>
         <option value="asc"> Ascending </option>
       </select>
-      <button onClick={(e) => clickHandler()}>Submit</button>
+      <button onClick={(e) => clickHandler()}> Submit</button>
       {/* <Statuses /> */}
       <IssuesList
         sortVal={sortVal}
@@ -153,9 +153,15 @@ const IssuesPage = (props) => {
         setData={setData}
         data={data}
       />
-      {page > 0 ? <button onClick={prevPage}>Previous Page</button> : null}
+      {page > 0 ? (
+        <button className="page-button" onClick={prevPage}>
+          Previous Page
+        </button>
+      ) : null}
 
-      <button onClick={nextPage}>Next Page</button>
+      <button className="page-button" onClick={nextPage}>
+        Next Page
+      </button>
     </div>
   );
 };

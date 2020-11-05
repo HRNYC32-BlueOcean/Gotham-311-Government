@@ -50,17 +50,21 @@ const IssuesEntry = (props) => {
         <div className="issue-data">{props.issue.user_id}</div>
         <div className="issue-data">{props.issue.resolution_status_id}</div>
         {props.issue.created_date ? (
-          <div className="issue-data">{Date(props.issue.created_date)}</div>
+          <div className="issue-data">{Date(props.issue.created_date).substring(0, 15)}</div>
         ) : (
           <div className="issue-data" />
         )}
         {props.issue.date_marked_in_progress ? (
-          <div className="issue-data">{Date(props.issue.date_marked_in_progress)}</div>
+          <div className="issue-data">
+            {Date(props.issue.date_marked_in_progress).substring(0, 15)}
+          </div>
         ) : (
           <div className="issue-data" />
         )}
         {props.issue.date_marked_resolved ? (
-          <div className="issue-data">{Date(props.issue.date_marked_resolved)}</div>
+          <div className="issue-data">
+            {Date(props.issue.date_marked_resolved).substring(0, 15)}
+          </div>
         ) : (
           <div className="issue-data" />
         )}
@@ -89,6 +93,7 @@ const IssuesEntry = (props) => {
           {/* maybe add a map? */}
           <img className="issue-data-photo" src={props.issue.photo_url}></img>
           {/* might need to do confitional rendering */}
+          <br></br>
           <button
           // onClick={(e) => {
           //   handleSubmit(e);
