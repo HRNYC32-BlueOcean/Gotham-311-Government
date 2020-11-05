@@ -18,48 +18,52 @@ const IssuesList = (props) => {
       );
     }
   };
+
   return (
     <div className="issues-table">
       <div className="issues-header issue-row">
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          id
+          ID
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          title
+          TITLE
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          reported_count
+          UPVOTES
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          borough
+          VALIDATIONS
+        </div>
+        <div className="issue-data" onClick={(e) => clickHandler(e)}>
+          REPORTED
+        </div>
+        <div className="issue-data" onClick={(e) => clickHandler(e)}>
+          BOROUGH
         </div>
         {/* <div className="issue-data">username</div> */}
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          user_id
+          USER_ID
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          upvoted_count
+          STATUS
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          resolution_status
+          DATE ISSUED
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          confirm_count
+          DATE IN PROGRESS
         </div>
         <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          dt_issued
-        </div>
-        <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          dt_in_progress
-        </div>
-        <div className="issue-data" onClick={(e) => clickHandler(e)}>
-          dt_resolved
+          DATE RESOLVED
         </div>
       </div>
       <IssuesEntry />
-      {props.issues.map((issueData) => {
-        return <IssuesEntry issue={issueData} />;
-      })}
+
+      {props.issues
+        ? props.issues.map((issueData) => {
+            return <IssuesEntry issue={issueData} />;
+          })
+        : null}
     </div>
   );
 };
