@@ -37,7 +37,9 @@ const IssuesPage = (props) => {
               date_marked_resolved
               create_date
               date_marked_in_progress
-              resolution_status_id
+              resolution_status {
+                name
+              }
             }
           }`,
         },
@@ -76,7 +78,9 @@ const IssuesPage = (props) => {
               date_marked_resolved
               date_marked_in_progress
               create_date
-              resolution_status_id
+              resolution_status {
+                name
+              }
             }
           }`,
         },

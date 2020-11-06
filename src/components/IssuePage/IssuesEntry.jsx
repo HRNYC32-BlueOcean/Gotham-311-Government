@@ -9,7 +9,7 @@ const IssuesEntry = (props) => {
 
   useEffect(() => {
     if (props.issue) {
-      setResolutionStatus(props.issue.resolution_status_id);
+      setResolutionStatus(props.issue.resolution_status.name);
       var dtInProg = new Date(Number(props.issue.date_marked_in_progress));
       var dtRes = new Date(Number(props.issue.date_marked_resolved));
 
@@ -25,6 +25,7 @@ const IssuesEntry = (props) => {
   const handleSubmit = (e) => {
     let date_status;
     let res_status;
+    let res_status_id;
     let now = new Date();
     let iso = now.toISOString();
     let dt = iso.substring(0, 10);
@@ -33,10 +34,12 @@ const IssuesEntry = (props) => {
       return;
     } else if (e.target.outerText === 'In Progress') {
       date_status = 'date_marked_in_progress';
-      res_status = 2;
+      res_status = 'IN PROGRESS';
+      res_status_id = 2;
       setProgressDate(now);
     } else {
-      res_status = 3;
+      res_status = 'RESOLVED';
+      res_status_id = 3;
       date_status = 'date_marked_resolved';
       setResolvedDate(now);
     }
@@ -48,7 +51,7 @@ const IssuesEntry = (props) => {
       method: 'post',
       data: {
         query: `mutation {
-          updateIssue(id: ${props.issue.id}, resolution_status_id: ${res_status}, ${date_status}: "${dt}")
+          updateIssue(id: ${props.issue.id}, resolution_status_id: ${res_status_id}, ${date_status}: "${dt}")
         }`,
       },
     })
