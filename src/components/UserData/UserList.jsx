@@ -9,8 +9,6 @@ const UserList = () => {
   const [sort, setSort] = useState('points');
   const [order, setOrder] = useState('desc');
 
-  console.log(userList,page, sort, order)
-
   useEffect(() => {
     sortedBy(sort, order, 0)
   }, []);
