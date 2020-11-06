@@ -38,7 +38,7 @@
       // This method runs upon a successful login
       signInSuccessWithAuthResult: function (authResult) {
         let idToken = null;
-        const userInfo = authResult.additionalUserInfo.profile;
+        const userInfo = authResult.user;
         const newUser = authResult.additionalUserInfo.isNewUser;
         console.log(userInfo, newUser);
         firebase
@@ -51,12 +51,9 @@
           .then((cookie) => {
             if (newUser) {
               console.log('new user!');
-
-              const queryString = createUserMutation(
-                userInfo.given_name,
-                userInfo.family_name,
-                userInfo.email
-              );
+              const firstName = userInfo.displayName.split(' ')[0];
+              const lastName = userInfo.displayName.split(' ')[1];
+              const queryString = createUserMutation(firstName, lastName, userInfo.email);
               console.log(queryString);
               return axios.post(apiURL, {
                 query: queryString,
