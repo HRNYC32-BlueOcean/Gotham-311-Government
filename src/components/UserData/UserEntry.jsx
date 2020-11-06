@@ -18,7 +18,9 @@ const UserEntry = ({user, onClick}) => {
         }`
       }
     })
-    onClick();
+    .then(() => {
+      onClick();
+    })
   };
 
   const handleUnban =() => {
@@ -33,7 +35,9 @@ const UserEntry = ({user, onClick}) => {
         }`
       }
     })
-    onClick();
+    .then(() => {
+      onClick();
+    })
   }
 
 
