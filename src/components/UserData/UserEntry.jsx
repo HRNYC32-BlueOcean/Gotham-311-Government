@@ -17,8 +17,9 @@ const UserEntry = ({user, onClick}) => {
           updateUser(id: ${user.id}, banned:${!user.banned} )
         }`
       }
-    })
-    onClick();
+    }).then(() => {
+      onClick()
+    }).catch((err) => console.log(err))
   };
 
   const handleUnban =() => {
@@ -32,8 +33,9 @@ const UserEntry = ({user, onClick}) => {
           updateUser(id: ${user.id}, banned:${!user.banned} )
         }`
       }
-    })
-    onClick();
+    }).then(() => {
+      onClick()
+    }).catch((err) => console.log(err))
   }
 
 
