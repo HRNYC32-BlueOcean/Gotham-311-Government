@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import EmployeeDashboard from './components/EmployeeDashboard/EmployeeDashboard';
 import IssuesPage from './components/IssuePage/IssuesPage';
-import UserData from './components/UserData/UserData';
+import UserList from './components/UserData/UserList';
 import { AppBar, Toolbar, Button, Typography } from '@material-ui/core';
 
 
@@ -29,7 +29,7 @@ const App = (props) => (
             <EmployeeDashboard/>
           </Route>
           <Route path="/users">
-            <UserData/>
+            <UserList/>
           </Route>
           <Route path="/issues">
             <IssuesPage/>
