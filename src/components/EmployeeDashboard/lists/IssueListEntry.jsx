@@ -1,30 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import {Grid, Typography} from '@material-ui/core';
 
 const BoroughTopIssueList = (props) => {
   const {issue} = props;
   const username = issue.user.email.split('@')[0];
+  const status = 'IN PROGRESS'
 
   return (
-    <div className="issue-list-entry-grid">
-      <div className="issue-entry issue-entry-title issue-list-grid-Col1">{issue.title}</div>
-      <div className="issue-entry issue-entry-user issue-list-grid-Col2">
+    <Grid
+      container
+      direction="row"
+      alignItems="center"
+      style={{
+        color: 'rgb(240,240,240)',
+        backgroundColor: 'rgb(20,20,40)',
+        boxShadow: 'inset 0 0 5px -2px rgb(255,255,255)',
+        border:'1px solid black',
+        borderRadius: '.15vw',
+        marginBottom: '.2vw',
+        paddingTop: '.6vw',
+        paddingBottom: '.6vw',
+        paddingLeft: '1vw',
+        fontSize: '.7vw'
+        }
+      }>
+      <Grid item xs={3}>
+        {issue.title}
+      </Grid>
+      <Grid item xs={2}>
         {username}
-      </div>
-      <div className="issue-entry issue-entry-type issue-list-grid-Col3">
+      </Grid>
+      <Grid item xs={2}>
         {issue.type.name}
-      </div>
-      <div className="issue-entry issue-entry-date issue-list-grid-Col4">
+      </Grid>
+      <Grid item xs={2}>
         {moment(issue.createdAt).format('MMM Do YYYY')}
-      </div>
-      <div className="issue-entry issue-entry-priority issue-list-grid-Col5">
+      </Grid>
+      <Grid item xs={1}>
         {issue.upvotes_count}
-      </div>
-      <div className="issue-entry issue-entry-status issue-list-grid-Col6">
-        {issue.resolution_status.status}
-      </div>
-    </div>
+      </Grid>
+      <Grid item xs={2} style={{
+      fontSize: '.5vw',
+      }}>
+        {status}
+      </Grid>
+    </Grid>
   );
 };
 

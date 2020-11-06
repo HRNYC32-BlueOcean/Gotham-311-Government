@@ -4,38 +4,40 @@ import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef, select } from '@nivo/core';
 
 const MonthlyIssueLineChart = (props) => {
-  const data = props.data || [
+  const { issueData } = props;
+
+  const data = [
     {
       id: 'OPEN',
       color: 'rgb(255, 128, 0)',
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.open,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.open,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.open,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.open,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.open,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.open,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.open,
         }
       ],
     },
@@ -45,31 +47,31 @@ const MonthlyIssueLineChart = (props) => {
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.in_progress,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.in_progress,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.in_progress,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.in_progress,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.in_progress,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.in_progress,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.in_progress,
         }
       ],
     },
@@ -79,45 +81,35 @@ const MonthlyIssueLineChart = (props) => {
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.resolved,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.resolved,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.resolved,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.resolved,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.resolved,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.resolved,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.resolved,
         }
       ],
     },
   ];
-
-  const randomizeData = (data) => {
-    data.forEach((entry) => {
-      entry.data.forEach((month) => {
-        month.y = Math.floor(Math.random() * Math.floor(200));
-      });
-    });
-  };
-
-  randomizeData(data);
 
   return (
     <div className="chart-widget">
@@ -195,3 +187,17 @@ const MonthlyIssueLineChart = (props) => {
 MonthlyIssueLineChart.propTypes = {};
 
 export default MonthlyIssueLineChart;
+
+/*
+
+
+const randomizeData = (data) => {
+  data.forEach((entry) => {
+    entry.data.forEach((month) => {
+      month.y = Math.floor(Math.random() * Math.floor(200));
+    });
+  });
+};
+
+randomizeData(data);
+*/

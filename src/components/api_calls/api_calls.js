@@ -33,6 +33,7 @@ export var getTopIssues = () => {
               email
             }
             create_date
+            upvotes_count
             resolution_status {
               name
             }
@@ -139,49 +140,49 @@ export var getIssueStatusCountForPeriod = () => {
     method: 'post',
     data: {
       query: `{
-        getIssueCounts(
-          one: ${oneDayAgo},
-          two: ${twoDaysAgo},
-          three: ${threeDaysAgo},
-          four: ${fourDaysAgo},
-          five: ${fiveDaysAgo},
-          six: ${sixDaysAgo},
-          seven: ${sevenDaysAgo}
+        getIssuesByPeriod(
+          one: "${oneDayAgo}",
+          two: "${twoDaysAgo}",
+          three: "${threeDaysAgo}",
+          four: "${fourDaysAgo}",
+          five: "${fiveDaysAgo}",
+          six: "${sixDaysAgo}",
+          seven: "${sevenDaysAgo}"
           ) {
           oneDayAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           twoDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           threeDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           fourDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           fiveDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           sixDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           sevenDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
         }
       }`
@@ -204,13 +205,13 @@ export var getUserInteractionCountsForPeriod = () => {
     data: {
       query: `{
         getInteractionCounts(
-          one: ${oneDayAgo},
-          two: ${twoDaysAgo},
-          three: ${threeDaysAgo},
-          four: ${fourDaysAgo},
-          five: ${fiveDaysAgo},
-          six: ${sixDaysAgo},
-          seven: ${sevenDaysAgo}
+          one: "${oneDayAgo}",
+          two: "${twoDaysAgo}",
+          three: "${threeDaysAgo}",
+          four: "${fourDaysAgo}",
+          five: "${fiveDaysAgo}",
+          six: "${sixDaysAgo}",
+          seven: "${sevenDaysAgo}"
           ) {
           oneDayAgo {
             countOfIssuePosts
