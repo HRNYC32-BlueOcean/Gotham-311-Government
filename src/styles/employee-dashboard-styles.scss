@@ -90,6 +90,45 @@ h1 {
   color: $medWhite;
 }
 
+.legend-container {
+  width: 80%;
+  padding-left: 3vw;
+  margin-top: 1vw;
+}
+
+.legend-square-orange {
+  width: .7vw;
+  height: .7vw;
+  background-color: rgb(255, 128, 0);
+  border: .7px solid black;
+}
+
+.legend-square-blue {
+  width: .7vw;
+  height: .7vw;
+  background-color: rgb(16, 104, 227);
+  border: 1px solid black;
+}
+
+.legend-square-white {
+  width: .7vw;
+  height: .7vw;
+  background-color:rgb(255,255,255);
+  border: 1px solid black;
+}
+
+.legend-square-black {
+  width: .7vw;
+  height: .7vw;
+  background-color:black;
+  border: 1px solid white;
+}
+
+.legend-text {
+  color: $medWhite;
+  font-size: .7vw;
+}
+
 .borough-top-issue-list-container {
   display: flex;
   flex-direction: column;

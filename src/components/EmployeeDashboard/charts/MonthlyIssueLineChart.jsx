@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef, select } from '@nivo/core';
+import {Grid} from '@material-ui/core';
 
 const MonthlyIssueLineChart = (props) => {
   const { issueData } = props;
@@ -114,6 +115,23 @@ const MonthlyIssueLineChart = (props) => {
   return (
     <div className="chart-widget">
       <p className="barchart-header">CITY WIDE ISSUE TRACKER</p>
+      <Grid container justify={'center'} alignItems={'center'} className="legend-container">
+        <Grid item><div className="legend-square-orange"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>OPEN</Grid>
+        <Grid item><div className="legend-square-blue" ></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>IN PROGRESS</Grid>
+        <Grid item><div className="legend-square-white"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>RESOLVED</Grid>
+      </Grid>
       <div className="barchart-container">
         <ResponsiveLine
           data={data}
@@ -187,17 +205,3 @@ const MonthlyIssueLineChart = (props) => {
 MonthlyIssueLineChart.propTypes = {};
 
 export default MonthlyIssueLineChart;
-
-/*
-
-
-const randomizeData = (data) => {
-  data.forEach((entry) => {
-    entry.data.forEach((month) => {
-      month.y = Math.floor(Math.random() * Math.floor(200));
-    });
-  });
-};
-
-randomizeData(data);
-*/

@@ -6,7 +6,6 @@ import {Grid, Typography} from '@material-ui/core';
 const BoroughTopIssueList = (props) => {
   const {issue} = props;
   const username = issue.user.email.split('@')[0];
-  const status = 'IN PROGRESS'
 
   return (
     <Grid
@@ -42,9 +41,9 @@ const BoroughTopIssueList = (props) => {
         {issue.upvotes_count}
       </Grid>
       <Grid item xs={2} style={{
-      fontSize: '.5vw',
+      fontSize: '.65vw',
       }}>
-        {status}
+        {issue.resolution_status.name}
       </Grid>
     </Grid>
   );
