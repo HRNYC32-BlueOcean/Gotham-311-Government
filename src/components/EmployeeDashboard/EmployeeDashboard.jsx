@@ -21,17 +21,19 @@ const EmployeeDashboard = (props) => {
   useEffect(() => {
     Promise.all([getTopIssues(),
       getIssueStatusCountByBoroughForLast24hours(),
+      getIssueStatusCountForPeriod()
       /* getUserInteractionCountsForPeriod(),
-      getIssueStatusCountForPeriod()*/])
+      */])
       .then((responses) => {
         const newTopIssues = responses[0].data.data.topIssues;
         const newBoroughIssues = responses[1].data.data.issuesByBorough;
-        // const newInteractionCounts = responses[2].data.data.interactionCounts;
-        // const newIssueCounts = responses[3].data.data.issueCounts;
+        const newIssueCounts = responses[2].data.data.getIssuesByPeriod;
+        // const newInteractionCounts = responses[3].data.data.interactionCounts;
+
         setTopIssues(newTopIssues);
         setBoroughIssues(newBoroughIssues);
+        setIssueCounts(newIssueCounts);
         // setInteractionCounts(newInteractionCounts);
-        // setIssueCounts(newIssueCounts);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -50,7 +52,7 @@ const EmployeeDashboard = (props) => {
   return (
       <div className="dashboard-container">
         <div className="overall-metrics-container">
-          <MonthlyIssueLineChart />
+          <MonthlyIssueLineChart issueData={issueCounts}/>
           <UserEngagementBarChart />
         </div>
         <div className="borough-metrics-container">

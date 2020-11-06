@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsivePie } from '@nivo/pie';
+import {Grid} from '@material-ui/core';
 
 const BoroughIssuePieChart = (props) => {
   const { data } = props;
@@ -22,17 +23,26 @@ const BoroughIssuePieChart = (props) => {
     },
   ];
 
-  const randomizeData = (data) => {
-    chartData.forEach((entry) => {
-      entry.value = Math.floor(Math.random() * Math.floor(200));
-    });
-  };
-
-  randomizeData(chartData);
-
   return (
     <div className="chart-widget">
       <div className="piechart-header">ISSUE STATUS: LAST 24 HOURS</div>
+      <Grid container justify={'center'} alignItems={'center'} className="legend-container">
+        <Grid item><div className="legend-square-orange"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>OPEN</Grid>
+        <Grid item><div className="legend-square-blue" ></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>IN PROGRESS</Grid>
+        <Grid item><div className="legend-square-white" ></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>RESOLVED</Grid>
+      </Grid>
       <div className="piechart-container">
         <ResponsivePie
           data={chartData}
@@ -41,7 +51,7 @@ const BoroughIssuePieChart = (props) => {
           endAngle={90}
           innerRadius={0.5}
           padAngle={0.75}
-          colors={['rgba(255, 128, 0, .9)', 'rgba(16, 104, 227,.9)', 'rgba(255,255,255,.9)']}
+          colors={['rgba(255, 128, 0, .8)', 'rgba(16, 104, 227,.8)', 'rgba(255,255,255,.8)']}
           borderWidth={1}
           borderColor="black"
           enableRadialLabels={false}

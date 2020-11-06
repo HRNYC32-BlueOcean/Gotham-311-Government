@@ -2,40 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef, select } from '@nivo/core';
+import {Grid} from '@material-ui/core';
 
 const MonthlyIssueLineChart = (props) => {
-  const data = props.data || [
+  const { issueData } = props;
+
+  const data = [
     {
       id: 'OPEN',
       color: 'rgb(255, 128, 0)',
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.open,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.open,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.open,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.open,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.open,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.open,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.open,
         }
       ],
     },
@@ -45,31 +48,31 @@ const MonthlyIssueLineChart = (props) => {
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.in_progress,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.in_progress,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.in_progress,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.in_progress,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.in_progress,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.in_progress,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.in_progress,
         }
       ],
     },
@@ -79,49 +82,56 @@ const MonthlyIssueLineChart = (props) => {
       data: [
         {
           x: '6 days ago',
-          y: 67,
+          y: issueData.sevenDaysAgo.resolved,
         },
         {
           x: '5 days ago',
-          y: 170,
+          y: issueData.sixDaysAgo.resolved,
         },
         {
           x: '4 days ago',
-          y: 32,
+          y: issueData.fiveDaysAgo.resolved,
         },
         {
           x: '3 days ago',
-          y: 170,
+          y: issueData.fourDaysAgo.resolved,
         },
         {
           x: '2 days ago',
-          y: 116,
+          y: issueData.threeDaysAgo.resolved,
         },
         {
           x: '1 day ago',
-          y: 1,
+          y: issueData.twoDaysAgo.resolved,
         },
         {
           x: 'Last day',
-          y: 300,
+          y: issueData.oneDayAgo.resolved,
         }
       ],
     },
   ];
 
-  const randomizeData = (data) => {
-    data.forEach((entry) => {
-      entry.data.forEach((month) => {
-        month.y = Math.floor(Math.random() * Math.floor(200));
-      });
-    });
-  };
-
-  randomizeData(data);
-
   return (
     <div className="chart-widget">
       <p className="barchart-header">CITY WIDE ISSUE TRACKER</p>
+      <Grid container justify={'center'} alignItems={'center'} className="legend-container">
+        <Grid item><div className="legend-square-orange"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>OPEN</Grid>
+        <Grid item><div className="legend-square-blue" ></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>IN PROGRESS</Grid>
+        <Grid item><div className="legend-square-white"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>RESOLVED</Grid>
+      </Grid>
       <div className="barchart-container">
         <ResponsiveLine
           data={data}

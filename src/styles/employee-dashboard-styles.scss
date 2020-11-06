@@ -1,7 +1,7 @@
 $primary-color: white;
 $bg: rgb(221, 226, 233);
-$card-color: rgb(54, 75, 192);
-$medWhite: rgba(245, 245, 245, 0.945);
+$card-color: rgb(39, 45, 82);
+$medWhite: rgb(245, 245, 245);
 $primaryFontStack: 'Arial', 'sans-serif';
 
 body {
@@ -31,8 +31,8 @@ h1 {
   justify-content: space-evenly;
   padding: 1vw;
   background-color: $card-color;
-  border: 1px solid rgb(170, 170, 170);
-  box-shadow: 0vw .2vw 1vw .05vw rgb(179, 179, 179);
+  border: 2px solid rgb(170, 170, 170);
+  box-shadow: 0vw 0vw 2vw 0vw rgb(6, 6, 7);
   padding-bottom: 2vw;
   margin: 2vw;
   margin-bottom: .5vw;
@@ -55,10 +55,11 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border-bottom: 2px solid rgb(255, 253, 253);
 }
 
 .barchart-header {
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   font-weight: 700;
   margin-bottom: .5vw;
   margin-top: .5vw;
@@ -73,8 +74,8 @@ h1 {
   align-items: center;
   padding: .5vw 1.5vw;
   background-color: $card-color;
-  border: 1px solid rgb(170, 170, 170);
-  box-shadow: 0vw .2vw 1vw .05vw rgb(179, 179, 179);
+  border: 2px solid rgb(170, 170, 170);
+  box-shadow: 0vw 0vw 2vw 0vw rgb(6, 6, 7);
   margin-bottom: 1vw;
 }
 
@@ -89,103 +90,59 @@ h1 {
   color: $medWhite;
 }
 
+.legend-container {
+  width: 80%;
+  padding-left: 3vw;
+  margin-top: 1vw;
+}
+
+.legend-square-orange {
+  width: .7vw;
+  height: .7vw;
+  background-color: rgb(255, 128, 0);
+  border: .7px solid black;
+}
+
+.legend-square-blue {
+  width: .7vw;
+  height: .7vw;
+  background-color: rgb(16, 104, 227);
+  border: 1px solid black;
+}
+
+.legend-square-white {
+  width: .7vw;
+  height: .7vw;
+  background-color:rgb(255,255,255);
+  border: 1px solid black;
+}
+
+.legend-square-black {
+  width: .7vw;
+  height: .7vw;
+  background-color:black;
+  border: 1px solid white;
+}
+
+.legend-text {
+  color: $medWhite;
+  font-size: .7vw;
+}
+
 .borough-top-issue-list-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   color: $medWhite;
+  width: 100%;
 }
 
-.issue-list-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: .4vw;
-}
-
-.issue-list-entry-grid {
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr 2fr 1fr 2fr;
-  border: 1px solid black;
-  background-color:  rgba(187, 192, 200, 0.8);
-}
-
-.issue-list-grid-Col1 {
-  grid-column: 1 / 2;
-  word-wrap: break-word;
-}
-
-.issue-list-grid-Col2 {
-  grid-column: 2 / 3;
-  word-wrap: break-word;
-}
-
-.issue-list-grid-Col3 {
-  grid-column: 3 / 4;
-  word-wrap: break-word;
-}
-
-.issue-list-grid-Col4 {
-  grid-column: 4 / 5;
-  word-wrap: break-word;
-}
-
-.issue-list-grid-Col5 {
-  grid-column: 5 / 6;
-  word-wrap: break-word;
-}
-
-.issue-list-grid-Col6 {
-  grid-column: 6 / 7;
-  word-wrap: break-word;
-}
-
-.issue-list-entry {
-  border: 1px solid black;
+.issue-list-header-container{
+  margin-bottom: .5vw;
 }
 
 .top-issue-header {
-  font-size: .85vw;
-  font-weight: 700;
-}
-
-.header-title {
-  margin-right: 0vw;
-}
-
-.header-username {
-  margin-left: 5vw;
-  margin-right: 0vw;
-}
-
-.header-type {
-  margin-right: 0vw;
-}
-
-.header-creationDate {
-  margin-right: 0vw;
-}
-
-.header-priority {
-  margin-right: 0vw;
-}
-
-.header-status {
-  margin-right: 0vw;
-}
-
-.issue-entry {
-  font-size: .6vw;
-  color: black;
-  margin: .6vw .75vw;
-}
-
-.issue-entry-priority {
-  margin: .6vw .4vw;
-}
-
-.issue-entry-status {
-  margin-right: .4vw;
+  font-size: .75vw;
 }
 
 .piechart-container {
@@ -193,7 +150,6 @@ h1 {
   min-width: 400px;
   margin: 0vw auto;
   text-transform: uppercase;
-  border-bottom: 2px solid black;
 }
 
 .barchart-container {
@@ -205,6 +161,7 @@ h1 {
 }
 
 .piechart-header {
+  font-size: 1.1vw;
   color: $medWhite
 }
 
