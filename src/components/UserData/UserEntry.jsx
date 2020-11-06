@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 
 
-const UserEntry = ({user}) => {
+const UserEntry = ({user, onClick}) => {
 
   const api_url = 'https://nameless-mountain-18450.herokuapp.com/';
 
@@ -18,6 +18,7 @@ const UserEntry = ({user}) => {
         }`
       }
     })
+    onClick();
   };
 
   const handleUnban =() => {
@@ -32,6 +33,7 @@ const UserEntry = ({user}) => {
         }`
       }
     })
+    onClick();
   }
 
 
