@@ -2,61 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import { linearGradientDef, select } from '@nivo/core';
+import {Grid} from '@material-ui/core';
 
 const MonthlyIssueLineChart = (props) => {
-  const data = props.data || [
+  const { issueData } = props;
+
+  const data = [
     {
       id: 'OPEN',
       color: 'rgb(255, 128, 0)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
+          x: '6 days ago',
+          y: issueData.sevenDaysAgo.open,
         },
         {
-          x: 'Feb',
-          y: 230,
+          x: '5 days ago',
+          y: issueData.sixDaysAgo.open,
         },
         {
-          x: 'Mar',
-          y: 259,
+          x: '4 days ago',
+          y: issueData.fiveDaysAgo.open,
         },
         {
-          x: 'Apr',
-          y: 15,
+          x: '3 days ago',
+          y: issueData.fourDaysAgo.open,
         },
         {
-          x: 'May',
-          y: 67,
+          x: '2 days ago',
+          y: issueData.threeDaysAgo.open,
         },
         {
-          x: 'June',
-          y: 170,
+          x: '1 day ago',
+          y: issueData.twoDaysAgo.open,
         },
         {
-          x: 'July',
-          y: 32,
-        },
-        {
-          x: 'Aug',
-          y: 170,
-        },
-        {
-          x: 'Sep',
-          y: 116,
-        },
-        {
-          x: 'Oct',
-          y: 1,
-        },
-        {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
-          y: 300,
-        },
+          x: 'Last day',
+          y: issueData.oneDayAgo.open,
+        }
       ],
     },
     {
@@ -64,53 +47,33 @@ const MonthlyIssueLineChart = (props) => {
       color: 'rgb(16, 104, 227)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
+          x: '6 days ago',
+          y: issueData.sevenDaysAgo.in_progress,
         },
         {
-          x: 'Feb',
-          y: 230,
+          x: '5 days ago',
+          y: issueData.sixDaysAgo.in_progress,
         },
         {
-          x: 'Mar',
-          y: 259,
+          x: '4 days ago',
+          y: issueData.fiveDaysAgo.in_progress,
         },
         {
-          x: 'Apr',
-          y: 15,
+          x: '3 days ago',
+          y: issueData.fourDaysAgo.in_progress,
         },
         {
-          x: 'May',
-          y: 67,
+          x: '2 days ago',
+          y: issueData.threeDaysAgo.in_progress,
         },
         {
-          x: 'June',
-          y: 170,
+          x: '1 day ago',
+          y: issueData.twoDaysAgo.in_progress,
         },
         {
-          x: 'July',
-          y: 32,
-        },
-        {
-          x: 'Aug',
-          y: 170,
-        },
-        {
-          x: 'Sep',
-          y: 116,
-        },
-        {
-          x: 'Oct',
-          y: 1,
-        },
-        {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
-          y: 300,
-        },
+          x: 'Last day',
+          y: issueData.oneDayAgo.in_progress,
+        }
       ],
     },
     {
@@ -118,75 +81,62 @@ const MonthlyIssueLineChart = (props) => {
       color: 'rgb(255,255,255)',
       data: [
         {
-          x: 'Jan',
-          y: 187,
+          x: '6 days ago',
+          y: issueData.sevenDaysAgo.resolved,
         },
         {
-          x: 'Feb',
-          y: 230,
+          x: '5 days ago',
+          y: issueData.sixDaysAgo.resolved,
         },
         {
-          x: 'Mar',
-          y: 259,
+          x: '4 days ago',
+          y: issueData.fiveDaysAgo.resolved,
         },
         {
-          x: 'Apr',
-          y: 15,
+          x: '3 days ago',
+          y: issueData.fourDaysAgo.resolved,
         },
         {
-          x: 'May',
-          y: 67,
+          x: '2 days ago',
+          y: issueData.threeDaysAgo.resolved,
         },
         {
-          x: 'June',
-          y: 170,
+          x: '1 day ago',
+          y: issueData.twoDaysAgo.resolved,
         },
         {
-          x: 'July',
-          y: 32,
-        },
-        {
-          x: 'Aug',
-          y: 170,
-        },
-        {
-          x: 'Sep',
-          y: 116,
-        },
-        {
-          x: 'Oct',
-          y: 1,
-        },
-        {
-          x: 'Nov',
-          y: 40,
-        },
-        {
-          x: 'Dec',
-          y: 300,
-        },
+          x: 'Last day',
+          y: issueData.oneDayAgo.resolved,
+        }
       ],
     },
   ];
 
-  const randomizeData = (data) => {
-    data.forEach((entry) => {
-      entry.data.forEach((month) => {
-        month.y = Math.floor(Math.random() * Math.floor(200));
-      });
-    });
-  };
-
-  randomizeData(data);
-
   return (
     <div className="chart-widget">
       <p className="barchart-header">CITY WIDE ISSUE TRACKER</p>
+      <Grid container justify={'center'} alignItems={'center'} className="legend-container">
+        <Grid item><div className="legend-square-orange"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>OPEN</Grid>
+        <Grid item><div className="legend-square-blue" ></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>IN PROGRESS</Grid>
+        <Grid item><div className="legend-square-white"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>RESOLVED</Grid>
+      </Grid>
       <div className="barchart-container">
         <ResponsiveLine
           data={data}
           keys={['OPEN', 'IN PROGRESS', 'RESOLVED']}
-          margin={{ top: 60, right: 20, bottom: 40, left: 60 }}
+          margin={{ top: 20, right: 40, bottom: 20, left: 70 }}
           xScale={{ type: 'point' }}
           yScale={{ type: 'linear', stacked: true, reverse: false }}
           enableArea
@@ -246,31 +196,6 @@ const MonthlyIssueLineChart = (props) => {
           pointBorderColor={{ from: 'serieColor' }}
           pointLabelYOffset={-12}
           useMesh
-          legends={[
-            {
-              anchor: 'top',
-              direction: 'row',
-              justify: false,
-              translateX: -20,
-              translateY: -50,
-              itemsSpacing: 0,
-              itemDirection: 'top-to-bottom',
-              itemWidth: 100,
-              itemHeight: 12,
-              symbolSize: 12,
-              symbolShape: 'circle',
-              symbolBorderColor: 'rgb(0, 0, 0)',
-              effects: [
-                {
-                  on: 'hover',
-                  style: {
-                    itemBackground: 'rgba(0, 0, 0, .03)',
-                    itemOpacity: 1,
-                  },
-                },
-              ],
-            },
-          ]}
         />
       </div>
     </div>

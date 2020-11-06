@@ -9,7 +9,7 @@ export var getTopIssues = () => {
     method: 'post',
     data: {
       query: `{
-        topIssues(count:5) {
+        topIssues(count: 5) {
           manhattan {
             title
             type {
@@ -18,10 +18,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           bronx {
@@ -32,10 +32,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           brooklyn {
@@ -46,10 +46,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           queens {
@@ -60,10 +60,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
           staten_island {
@@ -74,10 +74,10 @@ export var getTopIssues = () => {
             user {
               email
             }
-            createdAt
+            create_date
             upvotes_count
             resolution_status {
-              status
+              name
             }
           }
         }
@@ -88,36 +88,37 @@ export var getTopIssues = () => {
 
 export var getIssueStatusCountByBoroughForLast24hours = () => {
   var period = moment().subtract(1,'days').toDate();
+  console.log(period)
   return axios({
     url: api_url,
     method: 'post',
     data: {
       query: `{
-        getBoroughIssues(period: ${period}) {
+        issuesByBorough(period: "${period}") {
           manhattan {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           bronx {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           brooklyn {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           queens {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           staten_island {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
         }
       }`
@@ -139,49 +140,49 @@ export var getIssueStatusCountForPeriod = () => {
     method: 'post',
     data: {
       query: `{
-        getIssueCounts(
-          one: ${oneDayAgo},
-          two: ${twoDaysAgo},
-          three: ${threeDaysAgo},
-          four: ${fourDaysAgo},
-          five: ${fiveDaysAgo},
-          six: ${sixDaysAgo},
-          seven: ${sevenDaysAgo}
+        getIssuesByPeriod(
+          one: "${oneDayAgo}",
+          two: "${twoDaysAgo}",
+          three: "${threeDaysAgo}",
+          four: "${fourDaysAgo}",
+          five: "${fiveDaysAgo}",
+          six: "${sixDaysAgo}",
+          seven: "${sevenDaysAgo}"
           ) {
           oneDayAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           twoDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           threeDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           fourDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           fiveDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           sixDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
           sevenDaysAgo {
-            countOfOpenIssues
-            countOfInProgressIssues
-            countOfResolvedIssues
+            open
+            in_progress
+            resolved
           }
         }
       }`
@@ -204,13 +205,13 @@ export var getUserInteractionCountsForPeriod = () => {
     data: {
       query: `{
         getInteractionCounts(
-          one: ${oneDayAgo},
-          two: ${twoDaysAgo},
-          three: ${threeDaysAgo},
-          four: ${fourDaysAgo},
-          five: ${fiveDaysAgo},
-          six: ${sixDaysAgo},
-          seven: ${sevenDaysAgo}
+          one: "${oneDayAgo}",
+          two: "${twoDaysAgo}",
+          three: "${threeDaysAgo}",
+          four: "${fourDaysAgo}",
+          five: "${fiveDaysAgo}",
+          six: "${sixDaysAgo}",
+          seven: "${sevenDaysAgo}"
           ) {
           oneDayAgo {
             countOfIssuePosts

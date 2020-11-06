@@ -1,101 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveBar } from '@nivo/bar';
+import {Grid} from '@material-ui/core';
 
 const UserEngagementBarChart = (props) => {
-  const data = props.data || [
+  const data = [
     {
-      month: 'Jan',
+      period: '5 days ago',
       POSTS: 123,
       REPORTS: 96,
-      VALIDATIONS: 68,
-      RESOLVES: 68,
+      UPVOTES: 68,
+      // RESOLVES: 68,
     },
     {
-      month: 'Feb',
+      period: '4 days ago',
       POSTS: 66,
       REPORTS: 23,
-      VALIDATIONS: 132,
-      RESOLVES: 68,
+      UPVOTES: 132,
+      // RESOLVES: 68,
     },
     {
-      month: 'Mar',
+      period: '3 days ago',
       POSTS: 123,
       REPORTS: 22,
-      VALIDATIONS: 99,
-      RESOLVES: 68,
+      UPVOTES: 99,
+      // RESOLVES: 68,
     },
     {
-      month: 'Apr',
+      period: '2 days ago',
       POSTS: 81,
       REPORTS: 78,
-      VALIDATIONS: 55,
-      RESOLVES: 68,
+      UPVOTES: 55,
+      // RESOLVES: 68,
     },
     {
-      month: 'May',
+      period: '1 day ago',
       POSTS: 33,
       REPORTS: 45,
-      VALIDATIONS: 121,
-      RESOLVES: 68,
+      UPVOTES: 121,
+      // RESOLVES: 68,
     },
     {
-      month: 'June',
+      period: 'Last 24 hrs',
       POSTS: 122,
       REPORTS: 175,
-      VALIDATIONS: 143,
-      RESOLVES: 68,
-    },
-    {
-      month: 'July',
-      POSTS: 123,
-      REPORTS: 33,
-      VALIDATIONS: 78,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Aug',
-      POSTS: 55,
-      REPORTS: 34,
-      VALIDATIONS: 11,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Sep',
-      POSTS: 123,
-      REPORTS: 75,
-      VALIDATIONS: 155,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Oct',
-      POSTS: 22,
-      REPORTS: 33,
-      VALIDATIONS: 77,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Nov',
-      POSTS: 146,
-      REPORTS: 22,
-      VALIDATIONS: 11,
-      RESOLVES: 68,
-    },
-    {
-      month: 'Dec',
-      POSTS: 111,
-      REPORTS: 20,
-      VALIDATIONS: 155,
-      RESOLVES: 68,
-    },
+      UPVOTES: 143,
+      // RESOLVES: 68,
+    }
   ];
 
   const randomizeData = (data) => {
     data.forEach((entry) => {
       entry.POSTS = Math.floor(Math.random() * Math.floor(100));
       entry.REPORTS = Math.floor(Math.random() * Math.floor(100));
-      entry.VALIDATIONS = Math.floor(Math.random() * Math.floor(100));
-      entry.RESOLVES = Math.floor(Math.random() * Math.floor(100));
+      entry.UPVOTES = Math.floor(Math.random() * Math.floor(100));
+      // entry.RESOLVES = Math.floor(Math.random() * Math.floor(100));
     });
   };
 
@@ -104,19 +63,41 @@ const UserEngagementBarChart = (props) => {
   return (
     <div className="chart-widget">
       <p className="barchart-header">USER ENGAGEMENT</p>
+      <Grid container justify={'center'} alignItems={'center'} className="legend-container">
+        <Grid item><div className="legend-square-orange"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>POSTS</Grid>
+        <Grid item><div className="legend-square-blue"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>REPORTS</Grid>
+        <Grid item><div className="legend-square-white"></div></Grid>
+        <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>UPVOTES</Grid>
+        {/*<Grid item><div className="legend-square-black"></div></Grid>
+         <Grid item className="legend-text" style={{
+            marginRight: '2vw',
+            marginLeft: '.75vw'
+        }}>RESOLVES</Grid> */}
+      </Grid>
       <div className="barchart-container">
         <ResponsiveBar
           data={data}
-          keys={['POSTS', 'REPORTS', 'VALIDATIONS', 'RESOLVES']}
-          indexBy="month"
-          margin={{ top: 60, right: 20, bottom: 40, left: 60 }}
+          keys={['POSTS', 'REPORTS', 'UPVOTES'/*, 'RESOLVES'*/]}
+          indexBy="period"
+          margin={{ top: 20, right: 20, bottom: 20, left: 60 }}
           padding={0.35}
           groupMode="grouped"
           colors={[
             'rgba(255, 128, 0, .8)',
             'rgba(16, 104, 227,.8)',
             'rgba(255,255,255,.8)',
-            'rbga(0,0,0,.3)',
+            // 'rbga(0,0,0,.8)',
           ]}
           borderWidth={0.7}
           borderColor="black"
@@ -162,23 +143,6 @@ const UserEngagementBarChart = (props) => {
           enableLabel={false}
           labelSkipHeight={12}
           labelTextColor="rbg(255,255,255)"
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'top',
-              direction: 'row',
-              justify: false,
-              translateX: -20,
-              translateY: -50,
-              itemsSpacing: 10,
-              itemWidth: 70,
-              itemHeight: 15,
-              itemTextColor: "rbg(255,255,255)",
-              itemDirection: 'top-to-bottom',
-              symbolSize: 12,
-              symbolShape: 'circle',
-            },
-          ]}
           animate
           motionStiffness={95}
           motionDamping={15}
