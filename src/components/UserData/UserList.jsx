@@ -5,12 +5,11 @@ import UserEntry from './UserEntry';
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
-  // const [points, setPoints] = useState(0);
-  // const [reportCount, setReportCount] = useState('');
-  // const [status, setStatus] = useState()
   const [page, setPage] = useState(0);
   const [sort, setSort] = useState('points');
   const [order, setOrder] = useState('desc');
+
+  console.log(userList,page, sort, order)
 
   useEffect(() => {
     sortedBy(sort, order, 0)
@@ -49,6 +48,11 @@ const UserList = () => {
     }).then(({data}) => setUserList(data.data.getSortedUsers)).catch((err) => console.log(err));
   };
 
+
+  const handleClick =() => {
+    sortedBy(sort, order, 0)
+  }
+
   return (
     <div>
       <div>
@@ -83,10 +87,10 @@ const UserList = () => {
           <div className="issue-data">Points</div>
           <div className="issue-data">Report Count</div>
           <div className="issue-data">Status</div>
-          <div className="issue-data">Block User</div>
+          <div className="issue-data" >Block User</div>
         </div>
         {userList.map((user) => {
-          return <UserEntry user={user} />;
+          return <UserEntry user={user} onClick={handleClick}/>;
         })}
       </div>
       <div>{page + 1}</div>
